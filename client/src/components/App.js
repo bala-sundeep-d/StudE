@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import MainNav from './MainNav';
+import TopNavbar from './TopNavbar/topnavbar.component'
 import SideNav from './SideNav';
 import Content from './Content';
 
@@ -8,19 +8,13 @@ function App() {
   const showSideNav = false;
   return (
     <div className="App">
-        <Container fluid="true">
-          <Row>
-            <Col>
-              <MainNav/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              { showSideNav && <SideNav/>}
-              <Content/>
-            </Col>
-          </Row>
-        </Container>
+      <Container fluid="true">
+        <Row>
+          <Col>
+            <TopNavbar />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
