@@ -2,23 +2,38 @@ const express    = require('express');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const jwt    = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const path = require('path');
+const jwt    = require('jsonwebtoken');
 const cp = require('cookie-parser');
+const cors = require('cors');
+const authRouter = require('./app/users/authRouter');
+const { authenticate } = require('./app/middleware/authentication');
+const app	= express();
 
 dotenv.config();
-const app	= express();
+app.use(cors());
 app.use(cp());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({}));
-app.use(express.static(__dirname+'../client/build/'));
+app.use(express.static(path.join(__dirname, '../client/build/')));
 
+app.get(['/', '/dashboard', '/login'], (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
-app.use(require('./app/routes'));
+app.use(authRouter); // login
 
+app.use((req, res, next) => authenticate(req, res, next)); // authentication middleware
 
-const PORT = process.env.PORT || 8080;
+app.use(require('./app/routes')); // app routes
 
-app.listen(PORT,function(){
+app.use('/*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
 	console.log('server is running on ' + PORT);
 });

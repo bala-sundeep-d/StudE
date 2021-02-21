@@ -1,22 +1,40 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import TopNavbar from './TopNavbar/topnavbar.component'
-import SideNav from './SideNav';
-import Content from './Content';
+import React from "react";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import Cookies from 'js-cookie';
+import Dashboard from './Dashboard';
+import Login from './login/Login';
+
+const returnCookie = () => Cookies.get('auth_token');
 
 
-function App() {
-  const showSideNav = false;
-  return (
-    <div className="App">
-      <Container fluid="true">
-        <Row>
-          <Col>
-            <TopNavbar />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+const validateAuth = (Component) => () => {
+  return returnCookie() ? (
+    <Component />
+  ) : (
+    <Redirect to="/login" />
   );
-}
+};
+
+const isLoggedIn = () => () => {
+  return returnCookie() ? (
+    <Redirect to="/" />
+  ) : (
+    <Login />
+  );
+};
+
+const App = (props) => (
+  <Router {...props}>
+    <Switch>
+      <Route path="/login" render={ isLoggedIn() } />
+      <Route exact path={["/", "/dashboard"]} render={ validateAuth(Dashboard) } />
+    </Switch>
+  </Router>
+);
 
 export default App;

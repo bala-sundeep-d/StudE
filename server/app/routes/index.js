@@ -1,13 +1,7 @@
-
 const express = require('express');
 const router  = express.Router();
-const path = require('path');
-const authRouter = require('./authentication');
+const userRouter = require('../users/userRouter');
 
-router.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname, '../../../client/build/index.html'));
-});
-
-router.use('/login', authRouter);
+router.use('/user', userRouter);
 
 module.exports = router;
