@@ -8,9 +8,30 @@
 }
 .row{
     width: 100%;
+    margin: 0px;
 }
+.col{padding: 0px;}
+
 .btn{
+    font-size: x-large;
+    text-transform: uppercase;
     width: 100%;
+    border-radius: 0px;
+}
+.homeButton, .homeButton:hover{
+    background-color: #74cee4;
+    box-shadow: 0px 4px 0px 0px #6fc4d9;
+    border-color:#74cee4;
+}
+.myCoursesButton, .myCoursesButton:hover{
+    background-color: #edbf47;
+    box-shadow: 0px 4px 0px 0px #e0b84e;
+    border-color:#edbf47;
+}
+.ParentsViewButton, .ParentsViewButton:hover{
+    background-color: #6fc191;
+    box-shadow: 0px 4px 0px 0px #6ab78a;
+    border-color:#6fc191;
 }
 .navbar{
 }
