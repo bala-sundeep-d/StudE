@@ -3,9 +3,9 @@ import '../css/Brand.css';
 function Brand() {
     return (
         <>
-            <h2>
+            <h1>
                 StudE
-            </h2>
+            </h1>
         </>
     )
 }

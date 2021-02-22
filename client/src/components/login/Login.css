@@ -1,0 +1,42 @@
+.login {
+    width: 100%;
+    background: linear-gradient(25deg, 
+    #A15EC2 0%, #E75FAC 15%, #FF748C 35%, #FF9C6E 55%, #FFCA5F 85%, #F9F871 100%);
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.app-form {
+    position: relative;
+    background: #4D4351;
+    text-align: center;
+    transition: 0.25s;
+    padding: 4%;
+    box-shadow: 5px 5px 10px 1px black;
+    border-radius: 10px;
+}
+
+.login-divider {
+    border: 1px solid white;
+    opacity: 70%;
+    margin: 5%;
+}
+
+.login-submit {
+    background: #E75FAC;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+}
+
+.login-submit:hover {
+    background: #FF748C;
+}
+
+
+.login:hover {
+    z-index: 1000;
+}

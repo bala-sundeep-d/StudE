@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import './Login.css';
+import Brand from '../Brand.js';
 
 class Login extends React.Component {
 
@@ -40,28 +42,28 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div style={{border: "1px solid black",  width: "50%"}}>
-                <Form onSubmit={this.login}>
+            <div className="login">
+            <Row>
+                <Col xs={{span: 10, offset: 1}} md={{span: 4, offset: 4}} className="app-form">
+                <Brand/>
+                <hr className="login-divider"/>
+                <Form onSubmit={this.login} autoComplete="off">
                     <Form.Group controlId="userId">
-                        <Form.Label>User id</Form.Label>
-                        <Form.Control type="text" placeholder="Enter user id" onChange={this.updateUserId} />
-                        <Form.Text className="text-muted">
-                            "123456" is the sample user id for this assignment
-                        </Form.Text>
+                        <Form.Control type="text"
+                            placeholder='user id = 123456' onChange={this.updateUserId} />
                     </Form.Group>
 
                     <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Enter Password" onChange={this.updatePassword} />
-                        <Form.Text className="text-muted">
-                            "pass@123" is the sample password for this assignment
-                        </Form.Text>
-                    </Form.Group>
+                        <Form.Control type="password"
+                            placeholder='password = pass@123' onChange={this.updatePassword} />
+                        </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Submit
+                    <Button type="submit" size="sm" className="login-submit">
+                        Login
                     </Button>
                 </Form>
+                </Col>
+            </Row>
             </div>
         );
     }

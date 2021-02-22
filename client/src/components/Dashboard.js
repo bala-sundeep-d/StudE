@@ -9,7 +9,7 @@ import MainContainer from './MainContainer/MainContainer';
 function Dashboard() {
   const showSideNav = false;
   return (
-    <div className="App">
+    <div className="app">
       <Container fluid="true">
         <Row>
           <Col>

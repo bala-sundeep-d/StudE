@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, Form, Card, Col } from 'react-bootstrap';
+import './Dictionary.css';
 
 class DictionaryIcon extends React.Component {
     constructor(props) {
@@ -17,11 +18,8 @@ class DictionaryIcon extends React.Component {
     render() {
         const { showDictionary } = this.state;
         return (
-            <Button variant="primary" onClick={(e) => this.openDictionary(e, true)}
-                style={{position:"fixed", zIndex:1000,
-                borderRadius: "50px", width: "50px", height: "50px",
-                bottom: "10%", right: "1%"}}
-            >
+            <Button className="dictionary" onClick={(e) => this.openDictionary(e, true)}>
+                <i className="dict-icon bi bi-eyeglasses"></i>
                 <Modal
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"

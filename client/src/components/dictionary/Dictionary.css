@@ -1,0 +1,29 @@
+.dictionary{
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    bottom: 10%;
+    right: 1%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4D4351;
+    border: none;
+    opacity: 80%;
+}
+
+.dict-icon {
+    font-size: 40px;
+}
+
+.dictionary:hover {
+    background: #4D4351;
+    opacity: 100%;
+}
+
+.dictionary:active {
+    background: #4D4351;
+    opacity: 100%;
+}
