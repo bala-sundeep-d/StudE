@@ -5,6 +5,8 @@ import Dictionary from './dictionary/Dictionary';
 import Logout from './logout/Logout';
 import MainContainer from './MainContainer/MainContainer';
 
+import AppData from './AppData';
+import SideNav1 from './SideNav1.js';
 
 function Dashboard() {
   const showSideNav = false;
@@ -21,10 +23,9 @@ function Dashboard() {
             <Logout/>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <MainContainer />
-          </Col>
+        <Row > 
+          <Col md={2} style={{margin: '0px', padding: '0px'}}>
+          <SideNav1/></Col>
         </Row>
         <Dictionary/>
       </Container>
