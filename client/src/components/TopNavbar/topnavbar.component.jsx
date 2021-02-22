@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Nav, Navbar, Button } from 'react-bootstrap';
 import './topnavbar.style.css';
-
+import { Link } from 'react-router-dom';
 class TopNavbar extends React.Component {
 
     render() {
@@ -16,7 +16,9 @@ class TopNavbar extends React.Component {
                         <Col>
                             <Row className="navButtons">
                                 <Col><Button className="myCoursesButton"> My Courses</Button></Col>
-                                <Col><Button className="ParentsViewButton"> Parents View</Button></Col>
+                                <Col><Button className="ParentsViewButton">
+                                    <Link to='/parentView'>Parents View</Link>
+                                </Button></Col>
                             </Row>
                         </Col>
                     </Row>
