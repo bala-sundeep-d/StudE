@@ -12,7 +12,7 @@ class Logout extends React.Component {
 
 
     logout = e => {
-        axios.get(`http://localhost:8000/logout`)
+        axios.get('/logout')
           .then(() => {
             Cookies.remove("auth_token");
             this.props.history.push('/login');

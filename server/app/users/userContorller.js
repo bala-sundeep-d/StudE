@@ -22,7 +22,6 @@ const signin = (req, res) => {
 };
 
 const signout = (req, res) => {
-	console.log("came");
 	res.clearCookie("auth_token");
 	res.sendStatus(200);
 };

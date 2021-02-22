@@ -13,6 +13,7 @@ const returnCookie = () => Cookies.get('auth_token');
 
 
 const validateAuth = (Component) => () => {
+  console.log(returnCookie(), "1");
   return returnCookie() ? (
     <Component />
   ) : (
@@ -21,6 +22,7 @@ const validateAuth = (Component) => () => {
 };
 
 const isLoggedIn = () => () => {
+  console.log(returnCookie());
   return returnCookie() ? (
     <Redirect to="/" />
   ) : (
@@ -31,8 +33,8 @@ const isLoggedIn = () => () => {
 const App = (props) => (
   <Router {...props}>
     <Switch>
-      <Route path="/login" render={ isLoggedIn() } />
       <Route exact path={["/", "/dashboard"]} render={ validateAuth(Dashboard) } />
+      <Route path="/login" render={ isLoggedIn() } />
     </Switch>
   </Router>
 );

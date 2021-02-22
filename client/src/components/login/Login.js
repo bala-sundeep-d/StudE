@@ -27,7 +27,7 @@ class Login extends React.Component {
         const userId = this.state.userId;
         const password = this.state.password;
     
-        axios.post(`http://localhost:8000/login`, { userId, password })
+        axios.post('/login', { userId, password })
           .then(res => {
             console.log(res.data);
               if (res && res.data === "LOGIN_SUCCESS") {

@@ -10,12 +10,17 @@ const cors = require('cors');
 const authRouter = require('./app/users/authRouter');
 const { authenticate } = require('./app/middleware/authentication');
 const app	= express();
-
 dotenv.config();
-app.use(cors());
+
+const PORT = process.env.PORT || 8000;
+const allowCors = (process.env.NODE_ENV === "development")
+					? {credentials: true, origin: process.env.CLIENT} : {};
+
+app.use(cors(allowCors));
 app.use(cp());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({}));
+
 app.use(express.static(path.join(__dirname, '../client/build/')));
 
 app.get(['/', '/dashboard', '/login'], (req, res) => {
@@ -31,8 +36,6 @@ app.use(require('./app/routes')); // app routes
 app.use('/*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-
-const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
 	console.log('server is running on ' + PORT);
