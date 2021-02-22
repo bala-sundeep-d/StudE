@@ -33,7 +33,7 @@ function Dashboard() {
             </Col>
           </Row>
           <Row >
-            <Col sm={2}> Side Nav</Col>
+            <Col sm={2}> <SideNav1 /></Col>
             <Col className="maincontainerBox">
 
               <Switch>
