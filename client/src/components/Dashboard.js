@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import TopNavbar from './TopNavbar/topnavbar.component'
 import Dictionary from './dictionary/Dictionary';
 import Logout from './logout/Logout';
+import MainContainer from './MainContainer/MainContainer';
 
 
 function Dashboard() {
@@ -18,6 +19,11 @@ function Dashboard() {
         <Row>
           <Col>
             <Logout/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <MainContainer />
           </Col>
         </Row>
         <Dictionary/>

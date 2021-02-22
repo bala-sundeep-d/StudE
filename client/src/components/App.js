@@ -8,6 +8,7 @@ import {
 import Cookies from 'js-cookie';
 import Dashboard from './Dashboard';
 import Login from './login/Login';
+import CourseContent from "./CourseContent/CourseContent";
 
 const returnCookie = () => Cookies.get('auth_token');
 
@@ -35,6 +36,7 @@ const App = (props) => (
     <Switch>
       <Route exact path={["/", "/dashboard"]} render={ validateAuth(Dashboard) } />
       <Route path="/login" render={ isLoggedIn() } />
+      <Route path="/course" render={(props) => <CourseContent {...props}/>}/>
     </Switch>
   </Router>
 );
