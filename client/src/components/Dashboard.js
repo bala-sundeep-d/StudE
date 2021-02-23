@@ -26,10 +26,11 @@ function Dashboard() {
             <Col>
               <TopNavbar />
             </Col>
+            <Logout />
           </Row>
           <Row>
             <Col>
-              <Logout />
+
             </Col>
           </Row>
           <Row >
