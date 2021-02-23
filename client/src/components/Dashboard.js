@@ -38,6 +38,7 @@ function Dashboard() {
 
               <Switch>
                 <Route exact path={["/", "/dashboard"]} component={MainContainer} />
+                <Route exact path='/appdata'> <AppData /></Route>
                 <Route exact path='/parentView'> <ParentView /></Route>
                 <Route exact path='/course'> <CourseContent /></Route>
               </Switch>
