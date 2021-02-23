@@ -6,9 +6,8 @@ export default function ParentView(props) {
 
 
     return (
-        <Container >
+        <Container>
             <Row>
-
                 <CommentList />
             </Row>
         </Container>

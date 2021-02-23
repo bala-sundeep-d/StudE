@@ -37,7 +37,9 @@ function Dashboard() {
             <Col className="maincontainerBox">
               <Switch>
                 <Route exact path={["/", "/dashboard"]} component={MainContainer} />
-                <Route exact path='/parentView' component={ParentView} />
+                <Route exact path='/appdata'> <AppData /></Route>
+                <Route exact path='/parentView'> <ParentView /></Route>
+                <Route exact path='/course'> <CourseContent /></Route>
               </Switch>
             </Col>
           </Row >
