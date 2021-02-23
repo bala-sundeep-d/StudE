@@ -19,9 +19,9 @@ import {
 function Dashboard() {
   const showSideNav = false;
   return (
-    <div className="app">
-      <Container fluid="true" >
-        <Router>
+    <Router>
+      <div className="app">
+        <Container fluid="true" >
           <Row>
             <Col>
               <TopNavbar />
@@ -35,19 +35,17 @@ function Dashboard() {
           <Row >
             <Col sm={2}> <SideNav1 /></Col>
             <Col className="maincontainerBox">
-
               <Switch>
                 <Route exact path={["/", "/dashboard"]} component={MainContainer} />
-                <Route exact path='/parentView'> <ParentView /></Route>
-                <Route exact path='/course'> <CourseContent /></Route>
-              </Switch>
+                <Route exact path='/parentView' component={ParentView} />
 
+              </Switch>
             </Col>
           </Row >
           <Dictionary />
-        </Router>
-      </Container >
-    </div >
+        </Container >
+      </div >
+    </Router>
   );
 }
 

@@ -9,6 +9,7 @@
     padding: 10px;
     height: 80vh;
     overflow-y: scroll;
+    text-align: center;
 }
 .maincontainerBox::-webkit-scrollbar{
     width:16px;

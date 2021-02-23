@@ -1,11 +1,17 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import React from 'react';
-class ParentView extends React.Component {
+import './parentview.style.css'
+import CommentList from './commentlist/comment-list.component'
+export default function ParentView(props) {
 
-    render() {
-        return (
-            <div> Parents TAB </div>
-        )
-    };
+
+    return (
+        <Container >
+            <Row>
+
+                <CommentList />
+            </Row>
+        </Container>
+    )
+
 }
-export default ParentView;
