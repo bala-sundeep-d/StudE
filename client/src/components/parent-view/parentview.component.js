@@ -8,7 +8,6 @@ export default function ParentView(props) {
     return (
         <Container >
             <Row>
-
                 <CommentList />
             </Row>
         </Container>

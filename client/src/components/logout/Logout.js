@@ -3,9 +3,10 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import './logout.style.css'
 
 class Logout extends React.Component {
-    
+
     constructor(props) {
         super(props);
     }
@@ -13,17 +14,17 @@ class Logout extends React.Component {
 
     logout = e => {
         axios.get('/logout')
-          .then(() => {
-            Cookies.remove("auth_token");
-            this.props.history.push('/login');
-          });
+            .then(() => {
+                Cookies.remove("auth_token");
+                this.props.history.push('/login');
+            });
     }
 
     render() {
         return (
             <>
-                <Button variant="primary" size="lg" onClick={this.logout}>
-                    Logout
+                <Button className="logoutButton" onClick={this.logout}>
+                    <i class="bi bi-power"></i>
                 </Button>
             </>
         );
