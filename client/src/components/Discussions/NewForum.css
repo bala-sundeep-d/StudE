@@ -1,0 +1,28 @@
+.modal {
+    visibility: hidden;
+    position: relative;
+    top: -35px;
+}
+
+.submitOK {
+    visibility: hidden;
+}
+
+.new_post {
+    width: 60%;
+    left: 20%;
+    position: relative;
+}
+input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
+  textarea[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
