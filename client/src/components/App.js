@@ -9,6 +9,9 @@ import Cookies from 'js-cookie';
 import Dashboard from './Dashboard';
 import Login from './login/Login';
 import CourseContent from "./CourseContent/CourseContent";
+import Discussions from "./Discussions/Discussions";
+import Notes from "./Notes/Notes";
+import NewNotes from "./Notes/NewNotes";
 
 const returnCookie = () => Cookies.get('auth_token');
 
@@ -37,6 +40,9 @@ const App = (props) => (
       <Route exact path={["/", "/dashboard"]} render={ validateAuth(Dashboard) } />
       <Route path="/login" render={ isLoggedIn() } />
       <Route path="/course" render={(props) => <CourseContent {...props}/>}/>
+      <Route path="/discussions" component={Discussions}/>
+      <Route path="/notes" component={Notes}/>
+      <Route path="/newnote" component={NewNotes}/>
     </Switch>
   </Router>
 );
