@@ -9,14 +9,16 @@ import CourseContent from './CourseContent/CourseContent'
 import '../css/dashboard.style.css';
 import AppData from './AppData';
 import SideNav1 from './SideNav1.js';
+import Module from './modules';
 import {
   Route,
   BrowserRouter as Router,
   Switch,
-  Redirect,
+  Redirect, useParams
 } from "react-router-dom";
 
 function Dashboard() {
+  const {courseId} = useParams();
   const showSideNav = false;
   return (
     <Router>
@@ -28,24 +30,20 @@ function Dashboard() {
             </Col>
             <Logout />
           </Row>
-          <Row>
-            <Col>
-
-            </Col>
-          </Row>
-          <Row >
-            <Col sm={2}> <SideNav1 /></Col>
-            <Col className="maincontainerBox">
-              <Switch>
-                <Route exact path={["/", "/dashboard"]} component={MainContainer} />
-                <Route exact path='/appdata'> <AppData /></Route>
-                <Route exact path='/parentView'> <ParentView /></Route>
-                <Route exact path='/course'> <CourseContent /></Route>
-              </Switch>
-            </Col>
-          </Row >
+          <br/>
+      <Switch>
+                <Route exact path="/courses/:id">
+                  <Module/></Route>
+                <Route exact path="/courses" component={MainContainer}/>
+                <Route exact path="/courses/:id/qna">
+                  <Module type="qna"/></Route>
+                  <Route exact path="/courses/:id/notes">
+                  <Module type="notes"/></Route>
+                  
+      <Route exact path='/parentView'> <MainContainer type="parent"/></Route>
+        </Switch>
           <Dictionary />
-        </Container >
+        </Container >  
       </div >
     </Router>
   );

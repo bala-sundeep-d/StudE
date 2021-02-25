@@ -13,8 +13,7 @@ const app	= express();
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
-const allowCors = (process.env.NODE_ENV === "development")
-					? {credentials: true, origin: process.env.CLIENT} : {};
+const allowCors = {credentials: true, origin: 'http://localhost:3000'};
 
 app.use(cors(allowCors));
 app.use(cp());

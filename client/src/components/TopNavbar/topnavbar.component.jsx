@@ -11,11 +11,15 @@ class TopNavbar extends React.Component {
                 <Navbar>
                     <Row>
                         <Col>
-                            <Button className="homeButton"> StudE</Button>
+                            <Button className="homeButton">
+                                <Link to='/courses'>StudE</Link>
+                                </Button>
                         </Col>
                         <Col>
                             <Row className="navButtons">
-                                <Col><Button className="myCoursesButton"> My Courses</Button></Col>
+                                <Col><Button className="myCoursesButton">
+                                    <Link to='/courses'>My Courses</Link>
+                                    </Button></Col>
                                 <Col><Button className="ParentsViewButton">
                                     <Link to='/parentView'>Parents View</Link>
                                 </Button></Col>

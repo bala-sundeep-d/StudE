@@ -47,7 +47,7 @@ class NewNotes extends React.Component {
     render() {
       return (
           <div className="container">
-            <form class="form">
+            <form className="form">
                 <label>Title:</label>          
                 <input type="text"  value={this.state.title} onInput={this.handleChangeTitle} required/>
                 <label>Body:</label>

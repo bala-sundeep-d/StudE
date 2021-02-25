@@ -23,7 +23,7 @@ function Notes() {
 
 
   return (
-    <div class="container">
+    <div className="container">
       <h1>Notes</h1>
       <h3 className="create_newNotes"onClick={handleNew}>Create new notes</h3>
       { showNew ? <ShowNotes /> : null }      

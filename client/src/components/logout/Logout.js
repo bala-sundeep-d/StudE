@@ -2,33 +2,27 @@ import React from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Button } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import './logout.style.css'
 
-class Logout extends React.Component {
+const Logout = () => {
+    let history = useHistory();
 
-    constructor(props) {
-        super(props);
-    }
-
-
-    logout = e => {
+    const logout = () => {
         axios.get('/logout')
             .then(() => {
                 Cookies.remove("auth_token");
-                this.props.history.push('/login');
+                history.push('/logout');
             });
     }
 
-    render() {
-        return (
-            <>
-                <Button className="logoutButton" onClick={this.logout}>
-                    <i class="bi bi-power"></i>
-                </Button>
-            </>
-        );
-    }
+    return (
+        <>
+            <Button className="logoutButton" onClick={() => logout()}>
+                <i className="bi bi-power"></i>
+            </Button>
+        </>
+    );
 }
 
 export default withRouter(Logout);

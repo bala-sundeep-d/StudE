@@ -36,9 +36,13 @@ const isLoggedIn = () => () => {
 
 const App = (props) => (
   <Router {...props}>
-    <Switch>
-      <Route exact path={["/", "/dashboard"]} render={ validateAuth(Dashboard) } />
+    <Switch>      
+      <Route exact path={["/", "/dashboard"]} >
+        <Redirect to="/courses"/></Route>
+      <Route path="/courses" render={ validateAuth(Dashboard) } />
       <Route path="/login" render={ isLoggedIn() } />
+      <Route exact path="/logout" >
+        <Redirect to="/login"/></Route>
       <Route path="/course" render={(props) => <CourseContent {...props}/>}/>
       <Route path="/discussions" component={Discussions}/>
       <Route path="/notes" component={Notes}/>
