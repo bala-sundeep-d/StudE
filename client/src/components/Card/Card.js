@@ -16,7 +16,7 @@ const Card = (props) => {
       {(clicked && !props.static) ? <Redirect push
         to={{
         pathname: `${location.pathname}/${props.subjectId}`,
-        state: { course: props.title }
+        state: { course: props.title, cid:props.subjectId }
       }}
     /> : null}
     </article>

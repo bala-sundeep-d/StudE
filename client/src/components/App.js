@@ -43,10 +43,7 @@ const App = (props) => (
       <Route path="/login" render={ isLoggedIn() } />
       <Route exact path="/logout" >
         <Redirect to="/login"/></Route>
-      <Route path="/course" render={(props) => <CourseContent {...props}/>}/>
-      <Route path="/discussions" component={Discussions}/>
-      <Route path="/notes" component={Notes}/>
-      <Route path="/newnote" component={NewNotes}/>
+      <Route path="/notes" render={ validateAuth(Notes)} />
     </Switch>
   </Router>
 );

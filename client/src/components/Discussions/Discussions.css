@@ -1,19 +1,15 @@
 .discuss_container {
     background-color: white;
+    align-content: flex-end;
 }
 .cards {
-    padding: 2rem;
+    padding: 1rem;
     background: #fff;
   }
   
-  h1 {
-    text-align: center;
-  }
   
   .cards__container {
     display: flex;
-    flex-flow: column;
-    align-items: center;
     max-width: 1120px;
     width: 100%;
     margin: 0 auto;
@@ -47,8 +43,13 @@
   .post_username {
     margin:10px;
     font-size: 16px;
+    float: left;
   }
   
+  .post_userimage {
+float: left;
+  }
+
   .post_options {
     float: right;
   }
@@ -97,15 +98,16 @@
   }
   
   .icon { 
-    top: -45px;
-    left: 93%;
     font-size: 20px;
+    left: 45%;
   } 
+
+  .uicon {
+    font-size: 20px;
+    left:-45%;
+  }
   
-  .uicon { 
-    top : 50px;
-    left: 2%;
-  } 
+ 
   
   @media only screen and (min-width: 1200px) {
     .content__blog__container {

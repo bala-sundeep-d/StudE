@@ -10,15 +10,17 @@ import '../css/dashboard.style.css';
 import AppData from './AppData';
 import SideNav1 from './SideNav1.js';
 import Module from './modules';
+import React from 'react';
 import {
   Route,
   BrowserRouter as Router,
   Switch,
   Redirect, useParams
 } from "react-router-dom";
+import NewNotes from './Notes/NewNotes';
 
-function Dashboard() {
-  const {courseId} = useParams();
+const Dashboard = (props) => {
+  const courseId = "00";
   const showSideNav = false;
   return (
     <Router>
@@ -32,14 +34,12 @@ function Dashboard() {
           </Row>
           <br/>
       <Switch>
-                <Route exact path="/courses/:id">
-                  <Module/></Route>
-                <Route exact path="/courses" component={MainContainer}/>
-                <Route exact path="/courses/:id/qna">
-                  <Module type="qna"/></Route>
-                  <Route exact path="/courses/:id/notes">
-                  <Module type="notes"/></Route>
-                  
+                <Route exact path="/courses/:id" render={(props) => <Module cid={courseId} {...props}/>}/>
+                <Route exact path="/courses"render={(props) => <MainContainer cid={courseId} {...props}/>}/>
+                <Route exact path="/courses/:id/qna" render={(props) => <Module type="qna" cid={courseId} {...props}/>}/>
+                <Route exact path="/courses/:id/notes" render={(props) => <Module type="notes" cid={courseId} {...props}/>}/>
+                <Route exact path="/courses/:id/notes/:nid" render={(props) => <Module type="note" {...props}/>}/>
+                <Route exact path="/courses/:id/discussions" render={(props) => <Module type="discussions" cid={courseId} {...props}/>}/>
       <Route exact path='/parentView'> <MainContainer type="parent"/></Route>
         </Switch>
           <Dictionary />

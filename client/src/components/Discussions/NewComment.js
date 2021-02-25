@@ -1,69 +1,50 @@
 import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Modal from '@material-ui/core/Modal';
-// import Backdrop from '@material-ui/core/Backdrop';
-// import Fade from '@material-ui/core/Fade';
+import Modal from '../Modal/Modal';
 
-// const useStyles = makeStyles(theme => ({
-//     modal: {
-//         display: 'flex',
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//     },
-//     paper: {
-//         backgroundColor: theme.palette.background.paper,
-//         border: '2px solid #000',
-//         boxShadow: theme.shadows[5],
-//         padding: theme.spacing(2, 4, 3),
-//     },
-//     button: {
-//       color : 'white',
-//       background : "black",
-//     },
-// }));
 
-export default function NewComment() {
-    // const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+class NewComment extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {body:'',open:false};
+      this.handleChangeBody = this.handleChangeBody.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.showModal = this.showModal.bind(this);
+    }
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    handleChangeBody(event) {  
+        this.setState({body: event.target.value});
+    }
+   
+      handleSubmit(event) {
+          if(this.state.body.length===0){
+              event.preventDefault();
+            }
+            else{
+                this.setState({open: !this.state.open}) 
+            }
+      }
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
+    showModal(e){
+        this.setState({open: !this.state.open})
+        }
     
-    return (
+        render() {
+        return (
         <div>      
          <div className="newComment">
         <i className="bi bi-person-circle uicon" />
         <form>
-            <input className="input-field" type="text" placeholder="Write a comment" required/>  
-            <i  className="bi bi-arrow-right-circle icon" onClick={handleOpen}/>
+            <input className="input-field" type="text" placeholder="Write a comment" onInput={this.handleChangeBody} required/>  
+            <i className="bi bi-arrow-right-circle icon"  onClick={this.handleSubmit}/>
             </form>
         </div> 
        
-
-            {/* <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={open}>
-                    <div className={classes.paper}>
-                        <h2>Commented successfully</h2>
-                    </div>
-                </Fade>
-            </Modal>  */}
+        {this.state.open ? (
+    <Modal body="Commented Successfully"/>
+    ) : null}
+           
         </div>
     );
+        }
 }
+export default NewComment;

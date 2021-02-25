@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Notes.css';
-import {
-    Redirect
-  } from "react-router-dom";
+import {Route, Switch,BrowserRouter as Router, Redirect, useLocation} from 'react-router-dom';
 
-function Note() {
-
+  const Note = (props) => {
+    const location = useLocation();
     const [showOptions, showNotesOptions] = React.useState(false);
     const handleShowOptions = () => showNotesOptions(!showOptions);
     const ShowNotesOptions = () => (
@@ -23,7 +21,8 @@ function Note() {
           <i onClick={handleShowOptions} className="fas fa-ellipsis-h"/>
           { showOptions ? <ShowNotesOptions /> : null }          
         </div>
-     <Collapsible />
+        
+     <Collapsible title={props.title} body={props.body} noteId={props.noteId}/>
       </div>
   );
 }
@@ -34,6 +33,7 @@ class Collapsible extends React.Component {
     constructor(props){
     super(props);
     this.state = {
+        nid:this.props.nid,
     open: false
     }
     this.togglePanel = this.togglePanel.bind(this);
@@ -44,12 +44,13 @@ class Collapsible extends React.Component {
     render() {
     return (<div>
     <div onClick={(e)=>this.togglePanel(e)} className="notes_title">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+        {this.props.title}
+    </div>
     {this.state.open ? (
     <Redirect push
     to={{
-    pathname: "/newnote",
-    state: { title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+        pathname: `${location.pathname}/${this.props.noteId}`,
+    state: { title: `${this.props.title}`,body:`${this.props.body}` }
   }}
 />
     ) : null}

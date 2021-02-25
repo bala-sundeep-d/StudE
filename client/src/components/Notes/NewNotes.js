@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import  Modal from '../Modal/Modal';
 import './Notes.css';
 
-class NewNotes extends React.Component {
+class NewNotes extends Component {
     constructor(props) {
       super(props);
-      this.state = {title: this.props.location.state.title, body:this.props.location.state.body,open: false};
+      this.state = {title: this.props.title, body:this.props.body,open: false};
       this.handleChangeTitle = this.handleChangeTitle.bind(this);
       this.handleChangeBody = this.handleChangeBody.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,8 @@ class NewNotes extends React.Component {
     
     handleChangeTitle(event) {    
       this.setState({title: event.target.value});
-      if(this.state.title.length!==0&&this.state.body.length!==0){
+      
+      if((this.state.title!==null)&&(this.state.body!==null)){
         document.getElementById("submitError").style.visibility="hidden";
         document.getElementById("submitOK").style.visibility="visible";
     } else{
@@ -29,7 +30,7 @@ class NewNotes extends React.Component {
   
     handleChangeBody(event) {  
       this.setState({body: event.target.value});
-      if(this.state.title.length!==0&&this.state.body.length!==0){
+      if(this.state.title!==null&&this.state.body!==null){
       document.getElementById("submitError").style.visibility="hidden";      
       document.getElementById("submitOK").style.visibility="visible";
 
@@ -54,7 +55,7 @@ class NewNotes extends React.Component {
                 <textarea type="text" className="newNote_body" id="newNotes_body" value={this.state.body} onInput={this.handleChangeBody} required>
                 </textarea>
                 <div id="submitError">
-                <input type="submit"  variant="contained" value="Save Note" /> 
+                <input type="button"  variant="contained" value="Save Note" /> 
                 </div>
                 <div id="submitOK" class="submitOK">
                 <input type="button"  variant="contained" value="Save Note" onClick={(e)=>this.showModal(e)} /> 

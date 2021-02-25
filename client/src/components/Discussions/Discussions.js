@@ -31,13 +31,14 @@ function Discussions() {
       { showNew ? <ShowPosts /> : null }
       <div className="posts">
         <i className="post_userimage"><i className="bi bi-person-circle uicon"/></i>
-        <i className="post_username">User</i>
-        <span>1:15pm</span>
+        <i className="post_username">User <span> at 1:15pm</span></i>
+        
 
         <div className="post_options">
           <i onClick={handleShowOptions} className="bi bi-three-dots-vertical"/>
           { showOptions ? <ShowPostOptions /> : null }          
         </div>
+        <br />
 
         <h3 className="post_title">Title</h3>
         <h5 className="post_body">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available. In the interim we would suggest not upgrading to "Big Sur" if the Panopto desktop recorder is needed, or use Panopto Capture, our web browser based recording solution.</h5>
