@@ -25,7 +25,7 @@ function Discussions() {
 
 
   return (
-    <div class="discuss_container">
+    <div className="discuss_container">
       <h1>Discussion Forums</h1>
       <h3 className="create_newPost"onClick={handleNew}>Create new discussion post</h3>
       { showNew ? <ShowPosts /> : null }

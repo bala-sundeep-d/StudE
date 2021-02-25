@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './Notes.css';
-import {Route, Switch,BrowserRouter as Router, Redirect, useLocation} from 'react-router-dom';
+import {Route, Switch,BrowserRouter as Router, Redirect, useLocation } from 'react-router-dom';
 
   const Note = (props) => {
-    const location = useLocation();
     const [showOptions, showNotesOptions] = React.useState(false);
     const handleShowOptions = () => showNotesOptions(!showOptions);
     const ShowNotesOptions = () => (
@@ -29,32 +28,23 @@ import {Route, Switch,BrowserRouter as Router, Redirect, useLocation} from 'reac
 
 export default Note;
 
-class Collapsible extends React.Component {
-    constructor(props){
-    super(props);
-    this.state = {
-        nid:this.props.nid,
-    open: false
-    }
-    this.togglePanel = this.togglePanel.bind(this);
-    }
-    togglePanel(e){
-    this.setState({open: !this.state.open})
-    }
-    render() {
+const Collapsible = (props) => {
+  const nid = props.nid;
+  const location = useLocation();
+  const [open, togglePanel] = useState(false);
+
     return (<div>
-    <div onClick={(e)=>this.togglePanel(e)} className="notes_title">
-        {this.props.title}
+    <div onClick={(e)=>togglePanel(!open)} className="notes_title">
+        {props.title}
     </div>
-    {this.state.open ? (
+    {open ? (
     <Redirect push
     to={{
-        pathname: `${location.pathname}/${this.props.noteId}`,
-    state: { title: `${this.props.title}`,body:`${this.props.body}` }
+        pathname: `${location.pathname}/${props.noteId}`,
+    state: { title: `${props.title}`,body:`${props.body}` }
   }}
 />
     ) : null}
     </div>);
-    }
     }
     

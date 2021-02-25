@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Redirect
+    Redirect, useLocation
   } from "react-router-dom";
 import Note from './Note';
 import './Notes.css';
@@ -9,6 +9,7 @@ import './Notes.css';
 const Notes = () => {
   
     const [showNew, showNewNotes] = React.useState(false);
+    const location = useLocation();
     const handleNew = () => showNewNotes(!showNew);
     const ShowNotes = () => (
         <div className='cards__container'>

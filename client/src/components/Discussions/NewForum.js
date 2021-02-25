@@ -57,7 +57,7 @@ class NewForum extends React.Component {
         <div id="submitError">
           <input type="submit"  variant="contained" value="Post" /> 
           </div>
-          <div id="submitOK" class="submitOK">
+          <div id="submitOK" className="submitOK">
                 <input type="button"  variant="contained" value="Post" onClick={(e)=>this.showModal(e)} /> 
                 </div> 
                 {this.state.open ? (
