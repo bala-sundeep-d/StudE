@@ -35,9 +35,9 @@ const App = (props) => (
 	<Router {...props}>
 		<Switch>
 			<Route exact path={["/", "/dashboard"]} >
-				<Redirect to="/Home" />
+				<Redirect to="/home" />
 			</Route>
-			<Route path="/Home" render={validateAuth(Dashboard)} />
+			<Route path="/home" render={validateAuth(Dashboard)} />
 			<Route path="/login" render={isLoggedIn()} />
 			<Route exact path="/logout" >
 				<Redirect to="/login" />

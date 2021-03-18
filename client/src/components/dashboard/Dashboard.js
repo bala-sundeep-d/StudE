@@ -5,7 +5,7 @@ import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import TopNavbar from '../topNavbar/Topnavbar.component'
 import Logout from '../logout/Logout';
 import './Dashboard.style.css'
-
+import ParentView from '../parentView/Parentview.component'
 
 function Dashboard() {
 
@@ -27,6 +27,7 @@ function Dashboard() {
                                 <Route exact path='/home' >
                                     <Redirect to="/home/courses" />
                                 </Route>
+                                <Route path="/home/parentView"> <ParentView /> </Route>
                             </Switch>
                         </div>
                     </Col>
