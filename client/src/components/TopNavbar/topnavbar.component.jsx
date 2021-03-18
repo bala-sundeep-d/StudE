@@ -9,19 +9,22 @@ function TopNavbar() {
             <Navbar className="topNavBackground">
                 <Row>
                     <Col>
-                        <Button className="homeButton"><Link to='/home'>StudE</Link></Button>
+                        <Link to='/home'>
+                            <Button className="homeButton"> StudE </Button>
+                        </Link>
+
                     </Col>
                     <Col>
                         <Row className="navButtons">
                             <Col>
-                                <Button className="myCoursesButton">
-                                    <Link to='/home/courses'>My Courses</Link>
-                                </Button>
+                                <Link to='/home/courses'>
+                                    <Button className="myCoursesButton">My Courses</Button>
+                                </Link>
                             </Col>
                             <Col>
-                                <Button className="ParentsViewButton">
-                                    <Link to='/home/parentView'>Parents View</Link>
-                                </Button>
+                                <Link to='/home/parentView'>
+                                    <Button className="ParentsViewButton">Parents View </Button>
+                                </Link>
                             </Col>
                         </Row>
                     </Col>
