@@ -1,11 +1,10 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
-
+import './Dashboard.style.css'
 import TopNavbar from '../topNavbar/Topnavbar.component'
 import Logout from '../logout/Logout';
-import './Dashboard.style.css'
-
+import Courses from '../courses/Courses.component';
 
 function Dashboard() {
 
@@ -27,6 +26,8 @@ function Dashboard() {
                                 <Route exact path='/home' >
                                     <Redirect to="/home/courses" />
                                 </Route>
+
+                                <Route path="/Home/courses/:courseId"> <CoursePage /></Route>
                             </Switch>
                         </div>
                     </Col>
