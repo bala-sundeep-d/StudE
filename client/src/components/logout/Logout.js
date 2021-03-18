@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { Button } from 'react-bootstrap';
 import { withRouter, useHistory } from 'react-router-dom';
 import { BsPower } from "react-icons/bs";
+
 import './Logout.style.css';
 
 const Logout = () => {
