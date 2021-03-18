@@ -1,0 +1,65 @@
+.container{
+    background: inherit !important;
+}
+.row{
+    width: 100%;
+    margin: 0px;
+}
+.col{padding: 0px;}
+a, a:hover{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: large;
+}
+.btn{
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 0px;
+    height: 100%;
+    z-index: 0;
+
+}
+
+.topNavBackground{
+    background-color: #191970;
+    height: 100%;
+    width: 110%;
+    padding: 15px;
+    box-shadow: 100px;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px darkgrey;
+    margin-top: 10px;
+}
+.btn:hover{
+    transform: scale(1.1);
+    z-index: 5;
+    position: relative;
+    -khtml-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+      -o-transition: all 0.3s linear;
+         transition: all 0.3s linear;
+}
+.homeButton, .homeButton:hover{
+    background-color: #6ec4db;
+    box-shadow: 0px 4px 0px 0px #6ec4db;
+    border-color:#6ec4db;
+}
+.myCoursesButton, .myCoursesButton:hover{
+    background-color: #FA7C92;
+    box-shadow: 0px 4px 0px 0px #FA7C92;
+    border-color:#FA7C92;
+}
+.ParentsViewButton, .ParentsViewButton:hover{
+    background-color: #e9b000;
+    box-shadow: 0px 4px 0px 0px #e9b000;
+    border-color:#e9b000;
+}
+
+.myDiaryViewButton, .myDiaryViewButton:hover{
+    background-color: #66AB8C;
+    box-shadow: 0px 4px 0px 0px #66AB8C;
+    border-color:#66AB8C;
+
+}
