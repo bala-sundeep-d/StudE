@@ -17,7 +17,7 @@ const validateAuth = (Component) => () => {
 	return returnCookie() ? (
 		<Component />
 	) : (
-		<Redirect to="/login" />
+		<Component />
 	);
 };
 

@@ -4,7 +4,7 @@ import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import './Dashboard.style.css'
 import TopNavbar from '../topNavbar/Topnavbar.component'
 import Logout from '../logout/Logout';
-import Courses from '../courses/Courses.component';
+import CoursePage from '../coursePage/CoursePage.component';
 
 function Dashboard() {
 
