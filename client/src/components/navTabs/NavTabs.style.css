@@ -1,0 +1,53 @@
+.tabTitles{
+    background-color: '#DED93E';
+    opacity: '0.99';
+    border-radius: '10px';
+    color: black;
+}
+
+.CourseTabBar, .CourseTabBar a:hover{
+    border-color: transparent !important;
+}
+
+.CourseTabBar a:hover{
+    transform: scaleY(1.25);
+}
+
+#TabLink-tab-chapters{
+    background-color:#e16c6c ;
+    border-color: transparent;
+}
+#TabLink-tab-Qna{
+    background-color:#e0b84e ;
+    border-color: transparent;
+}
+#TabLink-tab-Notes{
+    background-color:#FA7C92 ;
+    border-color: transparent;
+}
+#TabLink-tab-Discussions{
+    background-color:#6fc191 ;
+    border-color: transparent;
+}
+
+.CourseTabs{
+    height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 5px solid black;
+}
+.CourseTabs::-webkit-scrollbar{
+    width:16px;
+    background-color:#ffffff00;
+} 
+.CourseTabs::-webkit-scrollbar-track {
+    background: #ffffff00; 
+    
+}
+.CourseTabs::-webkit-scrollbar-thumb {
+    background: #ffbd0a;
+    border-radius: 10px;
+}
+.CourseTabs::-webkit-scrollbar-thumb:hover {
+    background: rgb(102, 112, 37)
+}
