@@ -3,7 +3,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Button } from 'react-bootstrap';
 import { withRouter, useHistory } from 'react-router-dom';
-import './logout.style.css'
+import { BsPower } from "react-icons/bs";
+import './Logout.style.css';
 
 const Logout = () => {
     let history = useHistory();
@@ -17,11 +18,10 @@ const Logout = () => {
     }
 
     return (
-        <>
-            <Button className="logoutButton" onClick={() => logout()}>
-                <i className="bi bi-power"></i>
-            </Button>
-        </>
+        <Button className="logoutButton" onClick={() => logout()}>
+            <BsPower />
+        </Button>
+
     );
 }
 
