@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 
@@ -11,7 +10,6 @@ const userSchema = new Schema({
   },
   lastName: {
     type: 'String',
-    required: true,
     trim: true
   },
   userId: {
@@ -24,7 +22,21 @@ const userSchema = new Schema({
     type: 'String',
     required: true,
     trim: true
-  }
+  },
+  role: {
+    type: 'String',
+    enum : ['student','teacher'],
+    required: true,
+    trim: true
+  },
+  instituteId: {
+    type: 'String',
+    required: true,
+    trim: true
+  },
+  subjectIds: [{
+    type: 'String'
+  }]
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema, 'user');

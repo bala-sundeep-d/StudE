@@ -1,16 +1,23 @@
 const jwt    = require('jsonwebtoken');
+const User = require('../models/userModel');
 
 const authenticate = (req, res, next) => {
-	var mytoken = req.cookies.auth_token;
-	const db = { userId: '123', password: 'hello' };
+	let mytoken = req.cookies.auth_token;
 	if (mytoken) {
-		mytoken = jwt.verify(mytoken, 'group_4');
-		if (db.userId === mytoken.currentUser) {
-			return next();
-		}
+		mytoken = jwt.verify(mytoken, process.env.SECRET);
+		User.findOne({ userId: mytoken.currentUser }, (err, user) => {
+			if (err) return res.send("unable to fetch user");
+			if (user && user.userId) {
+				req.context.set('user', JSON.parse(JSON.stringify(user)));
+				return next();
+			} else {
+				res.clearCookie("auth_token");
+				return res.redirect("/");
+			}
+		});
 	}
 	else
-	res.redirect("/");
+	return res.redirect("/");
 }
 
 
