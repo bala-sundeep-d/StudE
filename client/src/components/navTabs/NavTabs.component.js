@@ -2,6 +2,8 @@ import './NavTabs.style.css'
 import React, { Component } from "react";
 import { Container, Tabs, Tab } from 'react-bootstrap';
 
+import QnA from '../coursePage/qna/Qna.component';
+
 var customColor = {
     "Red": "#e16c6c",
     "Yellow": "#e0b84e",
@@ -18,7 +20,7 @@ class NavTabs extends Component {
                     
                     </Tab>
                     <Tab eventKey="Qna" title="QnA" className="CourseTabs" style={{ borderColor: customColor.Yellow }}>
-                       
+                       <QnA/>
                     </Tab>
                     <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Pink }}>
                        
