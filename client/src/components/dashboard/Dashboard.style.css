@@ -1,0 +1,27 @@
+.app{
+    height:100vh; 
+    overflow: hidden;
+}
+.app .container-true{
+    height: 100%;
+}
+.LogoutButtonCOntainer{
+    position: relative;
+}
+.DashBoardContainer{
+    height: 83vh;
+    text-align: center;
+    margin: 2vh;
+    box-shadow: 5px 5px 15px darkgrey;
+    background-image: url(../../assets/kidsImage.jpg);
+    background-attachment: fixed!important;
+    background-repeat: no-repeat!important;
+    background-position: center center!important;
+    background-size: cover!important;
+    /* Image URL: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Funitedwaylowermainland%2F8771398278&psig=AOvVaw28eq4TbzvUVPL4K7n0bpgs&ust=1615729324699000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD1_PWyre8CFQAAAAAdAAAAABAD */
+}
+.trasparentBackground{
+    height: inherit;
+    background-color: rgba(40, 66, 150, 0.7);
+
+}

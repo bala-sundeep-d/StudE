@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-import './Login.css';
+import './Login.style.css';
+
 import Brand from '../Brand.js';
 
 class Login extends React.Component {
@@ -28,42 +29,42 @@ class Login extends React.Component {
         e.stopPropagation();
         const userId = this.state.userId;
         const password = this.state.password;
-    
+
         axios.post('/login', { userId, password })
-          .then(res => {
-            console.log(res.data);
-              if (res && res.data === "LOGIN_SUCCESS") {
-                  this.props.history.push('/');
-              } else {
-                this.props.history.push('/login');
-              }
-          });
+            .then(res => {
+                console.log(res.data);
+                if (res && res.data === "LOGIN_SUCCESS") {
+                    this.props.history.push('/');
+                } else {
+                    this.props.history.push('/login');
+                }
+            });
     }
 
     render() {
         return (
             <div className="login">
-            <Row>
-                <Col xs={{span: 10, offset: 1}} md={{span: 4, offset: 4}} className="app-form">
-                <Brand/>
-                <hr className="login-divider"/>
-                <Form onSubmit={this.login} autoComplete="off">
-                    <Form.Group controlId="userId">
-                        <Form.Control type="text"
-                            placeholder='user id = 123456' onChange={this.updateUserId} />
-                    </Form.Group>
+                <Row>
+                    <Col xs={{ span: 10, offset: 1 }} md={{ span: 4, offset: 4 }} className="app-form">
+                        <Brand />
+                        <hr className="login-divider" />
+                        <Form onSubmit={this.login} autoComplete="off">
+                            <Form.Group controlId="userId">
+                                <Form.Control type="text"
+                                    placeholder='user id = 123456' onChange={this.updateUserId} />
+                            </Form.Group>
 
-                    <Form.Group controlId="password">
-                        <Form.Control type="password"
-                            placeholder='password = pass@123' onChange={this.updatePassword} />
-                        </Form.Group>
+                            <Form.Group controlId="password">
+                                <Form.Control type="password"
+                                    placeholder='password = pass@123' onChange={this.updatePassword} />
+                            </Form.Group>
 
-                    <Button type="submit" size="sm" className="login-submit">
-                        Login
+                            <Button type="submit" size="sm" className="login-submit">
+                                Login
                     </Button>
-                </Form>
-                </Col>
-            </Row>
+                        </Form>
+                    </Col>
+                </Row>
             </div>
         );
     }

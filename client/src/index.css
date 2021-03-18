@@ -4,9 +4,10 @@
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
   background-color: rgb(238, 236, 236);
+  height: 100%;
 }
