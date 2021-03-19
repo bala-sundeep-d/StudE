@@ -5,6 +5,7 @@ import './Dashboard.style.css'
 import TopNavbar from '../topNavbar/Topnavbar.component'
 import Logout from '../logout/Logout';
 import CoursePage from '../coursePage/CoursePage.component';
+import ParentView from '../parentView/Parentview.component'
 
 function Dashboard() {
 
@@ -28,6 +29,7 @@ function Dashboard() {
                                 </Route>
 
                                 <Route path="/Home/courses/:courseId"> <CoursePage /></Route>
+                                <Route path="/home/parentView"> <ParentView /> </Route>
                             </Switch>
                         </div>
                     </Col>

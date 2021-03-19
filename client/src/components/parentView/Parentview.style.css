@@ -1,0 +1,29 @@
+.ParentTabContainer{
+    background-color: transparent !important;
+    height: inherit;
+}
+.ParentTabHeader{
+	width: 100%;
+    color: white;
+    font-size: 3vw;
+    font-weight: bold;
+}
+.ParentContentContainer{
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ParentContentContainer::-webkit-scrollbar{
+    width:10px;
+    background-color:#ffffff00;
+} 
+.ParentContentContainer::-webkit-scrollbar-track {
+    background: #ffffff00; 
+    
+}
+.ParentContentContainer::-webkit-scrollbar-thumb {
+    background: #ffbd0a;
+}
+.ParentContentContainer::-webkit-scrollbar-thumb:hover {
+    background: #FA7C92;
+}
