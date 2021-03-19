@@ -3,13 +3,8 @@ import React, { Component } from "react";
 import { Container, Tabs, Tab } from 'react-bootstrap';
 
 import QnA from '../coursePage/qna/Qna.component';
+import { customColor } from '../../assets/customColors';
 
-var customColor = {
-    "Red": "#e16c6c",
-    "Yellow": "#e0b84e",
-    "Pink": "#FA7C92",
-    "Green": "#6fc191",
-};
 class NavTabs extends Component {
 
     render() {
@@ -17,16 +12,16 @@ class NavTabs extends Component {
             <Container >
                 <Tabs fill defaultActiveKey="chapters" id="TabLink" className="CourseTabBar" style={{ borderRadius: '10px 10px 0px 0px' }}>
                     <Tab eventKey="chapters" title="Chapters" className="CourseTabs" style={{ borderColor: customColor.Red }} >
-                    
+
                     </Tab>
                     <Tab eventKey="Qna" title="QnA" className="CourseTabs" style={{ borderColor: customColor.Yellow }}>
-                       <QnA/>
+                        <QnA />
                     </Tab>
-                    <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Pink }}>
-                       
+                    <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Dark_Green }}>
+
                     </Tab>
                     <Tab eventKey="Discussions" title="Discussions" className="CourseTabs" style={{ borderColor: customColor.Green }}>
-                       
+
                     </Tab>
                 </Tabs>
             </Container>
