@@ -1,16 +1,16 @@
-const jwt    = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const _ = require('lodash');
 
 const signin = (req, res, next) => {
-    const userId = req.body && req.body.userId;
+	const userId = req.body && req.body.userId;
 	const password = req.body && req.body.password;
 
 	if (!userId) {
 		return res.send("invalid userId");
 	}
-	
+
 	if (!password) {
 		return res.send("invalid password");
 	}
@@ -32,7 +32,7 @@ const signin = (req, res, next) => {
 			currentUser: userId
 		}
 		const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' });
-		res.cookie('auth_token',token);
+		res.cookie('auth_token', token);
 		console.log(token);
 		return res.send('LOGIN_SUCCESS');
 	});
@@ -45,7 +45,7 @@ const signout = (req, res) => {
 
 const userList = (req, res) => {
 	const query = {};
-    query.instituteId = req.query && req.query.instituteId;
+	query.instituteId = req.query && req.query.instituteId;
 	const role = req.query && req.query.role;
 	if (role) query.role = role;
 	if (_.isEmpty(query) || !query.instituteId) return res.send("invalid request. Please enter a institute id")
@@ -68,18 +68,28 @@ const importUsers = (req, res) => {
 		if (!user.role) return res.send(`User role missing in ${index + 1} record`);
 		if (!user.instituteId) return res.send(`Institute id missing in ${index + 1} record`);
 		const userPassword = bcrypt.hashSync(`${user.lastName}@123`, salt);
-		user.password = userPassword;		
+		user.password = userPassword;
 	});
-	
+
 	User.create(users, (err, data) => {
 		if (err) return res.send(err);
 		res.send('import successful');
 	});
 }
+const getUserById = (req, res) => {
+	const userId = req.query && req.query.id;
+	if (!userId) return res.send("User ID is invalid");
+	User.findOne({ "_id": userId }, (err, data) => {
+		console.log(userId);
+		if (err) return res.send(err);
+		return res.send(data);
+	});
+}
 
 module.exports = {
-    signin,
+	signin,
 	userList,
 	signout,
-	importUsers
+	importUsers,
+	getUserById
 };

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-
+import Axios from 'axios';
 import './TeacherComment.style.css';
 import {
     BsFillPersonFill,
@@ -11,57 +11,69 @@ import {
 
 } from 'react-icons/bs';
 import CommentBox from "./commentBox/CommentBox.component"
+import axios from 'axios';
 
+/*
+    https://codewithnico.com/react-wait-axios-to-render/
+*/
 var commentTypeIcon = {
-    "Alert": <BsFillAlarmFill />,
+    "TODO": <BsFillAlarmFill />,
     "Award": <BsFillAwardFill />,
-    "Notify": <BsExclamationTriangleFill />,
+    "Notification": <BsExclamationTriangleFill />,
     "Doubt": <BsQuestionSquareFill />,
 };
-var bigText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-const Diary = () => {
 
-    const content = [
-        {
-            TeacherName: "Teacher - A",
-            Comment: 'Comment - 1' + bigText,
-            TypeText: "TODO",
-            Type: commentTypeIcon["Alert"],
-            Date: "1st April 2021"
-        },
-        {
-            TeacherName: "Teacher - B",
-            Comment: 'Comment - 2' + bigText,
-            TypeText: "Award",
-            Type: commentTypeIcon["Award"],
-            Date: "19th March 2021"
-        },
-        {
-            TeacherName: "Teacher - C",
-            Comment: 'Comment - 3' + bigText,
-            TypeText: "Notification",
-            Type: commentTypeIcon["Notify"],
-            Date: "24th Feb 2021"
-        },
-        {
-            TeacherName: "Teacher - D",
-            Comment: 'Comment - 4' + bigText,
-            TypeText: "Doubt",
-            Type: commentTypeIcon["Doubt"],
-            Date: "4th January 2021"
-        }
-    ]
+const TeacherComments = () => {
+    const [isLoading, setLoading] = useState(true);
+    const [allComments, setAllComments] = useState([]);
+    const dateOptions = { month: "long", day: "numeric", year: "numeric" };
+    useEffect(() => {
+        const userId = "6052476ab8c1ca2afcbc791c";
+        const urlToGetAllComments = "/teacherComments/getByStudentId?studentId=" + userId;
+
+        axios.get(urlToGetAllComments).then(response => {
+            const comments = response.data;
+            const tempCommentList = [];
+            comments.map((comment) => {
+                const urlToGetTeacherName = "/users/getUserById?id=" + comment.teacherId;
+                axios.get(urlToGetTeacherName).then(resp => {
+                    const newComment = {
+                        TeacherName: resp.data.firstName + " " + resp.data.lastName + " says: ",
+                        Comment: comment.comment,
+                        TypeText: comment.type,
+                        Type: commentTypeIcon[comment.type],
+                        Date: "On: " + (comment.timestamp.split("T"))[0]
+                        /*new Intl.DateTimeFormat("en-GB", dateOptions).format(comment.timestamp)*/
+                    }
+                    tempCommentList.push(newComment);
+                });
+            });
+
+            setLoading(false);
+            setAllComments(tempCommentList);
+
+        });
+    }, []);
+
+    if (isLoading) {
+        console.log(allComments);
+        return (
+            <Container className="TeacherCommentsContainer">
+                Loading.....
+            </Container>
+        );
+    }
 
     return (
         <Container className="TeacherCommentsContainer">
             <Row >
                 {
-                    content.map((content, index) =>
+                    allComments.map((content, index) =>
                         <CommentBox
                             key={index}
                             teacher={content.TeacherName}
                             type={content.Type}
-                            commentType={content.TypeText}
+                            typeText={content.TypeText}
                             comment={content.Comment}
                             date={content.Date}
                         />
@@ -72,12 +84,4 @@ const Diary = () => {
     );
 }
 
-export default Diary;
-/*
-<Container><Row >
-                <Col sm={{ span: '2', offset: '10' }}><Button className='add-button' variant="primary" size="lg">Add Remark </Button>{' '}</Col>
-            </Row></Container>
-
-
-
-            */
+export default TeacherComments;

@@ -40,10 +40,3 @@ const Subjects = (props) => {
 }
 
 export default Subjects;
-
-/*
-{
-
-                    subjectList.map((subject, index) => <Card key={index} title={subject.title} term={subject.term} subjectId={index} />)
-                }
-                */

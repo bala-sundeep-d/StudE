@@ -20,7 +20,7 @@ const CommentBox = (props) => {
                     placement="top"
                     overlay={
                         <Tooltip id="tooltip-top">
-                            <strong> {props.commentType} </strong>
+                            <strong> {props.typeText} </strong>
                         </Tooltip>
                     }
                 >

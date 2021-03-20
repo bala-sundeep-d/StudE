@@ -28,6 +28,11 @@ const TeacherCommentSchema = new Schema({
     type: 'String',
     required: true,
     trim: true
+  },
+  timestamp: {
+    type: Date,
+    required: true,
+    default: Date.now
   }
 });
 
