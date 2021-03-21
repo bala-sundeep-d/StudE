@@ -8,15 +8,21 @@
 ## Authors
 * [Nikunj Goenka](Nikunj.Goenka@dal.ca)
 
-## User-Id and Password to login
+## User-id and Password to login
 ````
-username: 12346
+user-id: 12346
 password: goenka@123
 ````
 
 ## List of files Created:
 
-File Name  | File Path  | Feature
-------------- | ------------- | -------------
-Content Cell  | Content Cell | Content Cell
-Content Cell  | Content Cell
+File Name  | File Path  | Feature 
+------------- | ------------- | ------------- 
+CoursePage.component.js  | client\src\components\coursePage\CoursePage.component.js | Course Page 
+CoursePage.style.css  | client\src\components\coursePage\CoursePage.style.css | Course Page
+Parentview.component.js | client\src\components\parentView\Parentview.component.js | Parent Page
+Parentview.style.css | client\src\components\parentView\Parentview.style.css | Parent Page
+TeacherComment.component.js| client\src\components\parentView\teacherComment\TeacherComment.component.js | Teacher Comments 
+TeacherComment.style.css| client\src\components\parentView\teacherComment\TeacherComment.style.css | Teacher Comments
+CommentBox.component.js| client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js | Teacher Comments
+CommentBox.style.css| client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css | Teacher Comments
