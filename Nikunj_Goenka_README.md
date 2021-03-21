@@ -18,11 +18,11 @@ password: goenka@123
 
 File Name  | File Path  | Feature 
 ------------- | ------------- | ------------- 
-CoursePage.component.js  | client\src\components\coursePage\CoursePage.component.js | Course Page 
-CoursePage.style.css  | client\src\components\coursePage\CoursePage.style.css | Course Page
-Parentview.component.js | client\src\components\parentView\Parentview.component.js | Parent Page
-Parentview.style.css | client\src\components\parentView\Parentview.style.css | Parent Page
-TeacherComment.component.js| client\src\components\parentView\teacherComment\TeacherComment.component.js | Teacher Comments 
-TeacherComment.style.css| client\src\components\parentView\teacherComment\TeacherComment.style.css | Teacher Comments
-CommentBox.component.js| client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js | Teacher Comments
-CommentBox.style.css| client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css | Teacher Comments
+CoursePage.component.js | Course Page  | client\src\components\coursePage\CoursePage.component.js 
+CoursePage.style.css | Course Page | client\src\components\coursePage\CoursePage.style.css 
+Parentview.component.js | Parent Page | client\src\components\parentView\Parentview.component.js 
+Parentview.style.css | Parent Page | client\src\components\parentView\Parentview.style.css 
+TeacherComment.component.js | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.component.js 
+TeacherComment.style.css | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.style.css
+CommentBox.component.js | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js
+CommentBox.style.css | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css
