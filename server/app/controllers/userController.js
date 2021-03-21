@@ -76,16 +76,6 @@ const importUsers = (req, res) => {
 		res.send('import successful');
 	});
 }
-const getUserById = (req, res) => {
-	const userId = req.query && req.query.id;
-	if (!userId) return res.send("User ID is invalid");
-	User.findOne({ "_id": userId }, (err, data) => {
-		console.log(userId);
-		if (err) return res.send(err);
-		return res.send(data);
-	});
-}
-
 module.exports = {
 	signin,
 	userList,
