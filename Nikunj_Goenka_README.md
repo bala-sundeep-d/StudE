@@ -16,8 +16,8 @@ password: goenka@123
 
 ## List of files Created:
 
-File Name  | File Path  | Feature 
-------------- | ------------- | ------------- 
+File Name  | Feature  |  File Path
+------------- | ----------------------- | ------------- 
 CoursePage.component.js | Course Page  | client\src\components\coursePage\CoursePage.component.js 
 CoursePage.style.css | Course Page | client\src\components\coursePage\CoursePage.style.css 
 Parentview.component.js | Parent Page | client\src\components\parentView\Parentview.component.js 
