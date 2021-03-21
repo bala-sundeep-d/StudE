@@ -26,3 +26,9 @@ TeacherComment.component.js | Teacher Comments | client\src\components\parentVie
 TeacherComment.style.css | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.style.css
 CommentBox.component.js | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js
 CommentBox.style.css | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css
+teacherCommentsController.js| Teacher Comments |server\app\controllers\teacherCommentsController.js
+teacherCommentsModel.js| Teacher Comments |server\app\models\teacherCommentsModel.js
+teacherCommentsRouter.js| Teacher Comments |server\app\routes\teacherCommentsRouter.js
+Topnavbar.component.jsx| Top Navbar | client\src\components\topNavbar\Topnavbar.component.jsx
+Topnavbar.style.css| Top Navbar | client\src\components\topNavbar\Topnavbar.style.css
+
