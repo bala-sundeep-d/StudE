@@ -13,9 +13,8 @@
 user-id: 12346
 password: goenka@123
 ````
-<FilesList>
-  <Title>## List of files Created: </Title>
-    <p>
+
+## List of files Created: </Title>
       File Name  | Feature  |  File Path
       ------------- | ----------------------- | ------------- 
       CoursePage.component.js | Landing Page  | client\src\components\coursePage\CoursePage.component.js 
@@ -33,8 +32,7 @@ password: goenka@123
       Topnavbar.style.css| Top Navbar | client\src\components\topNavbar\Topnavbar.style.css
       Dashboard.js | Landing Page | client\src\components\dashboard\Dashboard.js
       Dashboard.style.css | Landing Page | client\src\components\dashboard\Dashboard.style.css
-    </p>
-</FilesList>
+
 ## Feature Developed ##
 The main that I have developed is ** Teacher's Comments**. For primary school students, their parents should know the day-to-day activities/homework/Awards etc. By using this feature teachers will be able to post comments on student's profiles. The comments are divided into 4 categories (todo, awards, notifications, and doubts), for more understandability and filtering (future Scope).
 
