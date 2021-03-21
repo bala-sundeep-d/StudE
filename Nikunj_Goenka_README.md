@@ -15,23 +15,23 @@ password: goenka@123
 ````
 
 ## List of files Created: </Title>
-      File Name  | Feature  |  File Path
-      ------------- | ----------------------- | ------------- 
-      CoursePage.component.js | Landing Page  | client\src\components\coursePage\CoursePage.component.js 
-      CoursePage.style.css | Landing Page | client\src\components\coursePage\CoursePage.style.css 
-      Parentview.component.js | Parent Page | client\src\components\parentView\Parentview.component.js 
-      Parentview.style.css | Parent Page | client\src\components\parentView\Parentview.style.css 
-      TeacherComment.component.js | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.component.js 
-      TeacherComment.style.css | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.style.css
-      CommentBox.component.js | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js
-      CommentBox.style.css | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css
-      teacherCommentsController.js| Teacher Comments |server\app\controllers\teacherCommentsController.js
-      teacherCommentsModel.js| Teacher Comments |server\app\models\teacherCommentsModel.js
-      teacherCommentsRouter.js| Teacher Comments |server\app\routes\teacherCommentsRouter.js
-      Topnavbar.component.jsx| Top Navbar | client\src\components\topNavbar\Topnavbar.component.jsx
-      Topnavbar.style.css| Top Navbar | client\src\components\topNavbar\Topnavbar.style.css
-      Dashboard.js | Landing Page | client\src\components\dashboard\Dashboard.js
-      Dashboard.style.css | Landing Page | client\src\components\dashboard\Dashboard.style.css
+File Name  | Feature  |  File Path
+------------- | ----------------------- | ------------- 
+CoursePage.component.js | Landing Page  | client\src\components\coursePage\CoursePage.component.js 
+CoursePage.style.css | Landing Page | client\src\components\coursePage\CoursePage.style.css 
+Parentview.component.js | Parent Page | client\src\components\parentView\Parentview.component.js 
+Parentview.style.css | Parent Page | client\src\components\parentView\Parentview.style.css 
+TeacherComment.component.js | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.component.js 
+TeacherComment.style.css | Teacher Comments | client\src\components\parentView\teacherComment\TeacherComment.style.css
+CommentBox.component.js | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.component.js
+CommentBox.style.css | Teacher Comments | client\src\components\parentView\teacherComment\commentBox\CommentBox.style.css
+teacherCommentsController.js| Teacher Comments |server\app\controllers\teacherCommentsController.js
+teacherCommentsModel.js| Teacher Comments |server\app\models\teacherCommentsModel.js
+teacherCommentsRouter.js| Teacher Comments |server\app\routes\teacherCommentsRouter.js
+Topnavbar.component.jsx| Top Navbar | client\src\components\topNavbar\Topnavbar.component.jsx
+Topnavbar.style.css| Top Navbar | client\src\components\topNavbar\Topnavbar.style.css
+Dashboard.js | Landing Page | client\src\components\dashboard\Dashboard.js
+Dashboard.style.css | Landing Page | client\src\components\dashboard\Dashboard.style.css
 
 ## Feature Developed ##
 The main that I have developed is ** Teacher's Comments**. For primary school students, their parents should know the day-to-day activities/homework/Awards etc. By using this feature teachers will be able to post comments on student's profiles. The comments are divided into 4 categories (todo, awards, notifications, and doubts), for more understandability and filtering (future Scope).
