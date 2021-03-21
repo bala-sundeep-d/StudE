@@ -13,9 +13,7 @@ import {
 import CommentBox from "./commentBox/CommentBox.component"
 import axios from 'axios';
 
-/*
-    https://codewithnico.com/react-wait-axios-to-render/
-*/
+
 /* React Icons to show Comment Type */
 var commentTypeIcon = {
     "TODO": <BsFillAlarmFill />,
@@ -30,7 +28,11 @@ const TeacherComments = () => {
     const [allComments, setAllComments] = useState([]);
 
     useEffect(() => {
-        const userId = "6052476ab8c1ca2afcbc791c";
+        const userId = localStorage.getItem("userId");
+
+        console.log(userId);
+
+        //const userId = "6052476ab8c1ca2afcbc791c";
         const urlToGetAllComments = "/teacherComments/getByStudentId?studentId=" + userId;
 
         axios.get(urlToGetAllComments).then(response => {

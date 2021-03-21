@@ -34,7 +34,10 @@ const signin = (req, res, next) => {
 		const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' });
 		res.cookie('auth_token', token);
 		console.log(token);
-		return res.send('LOGIN_SUCCESS');
+		return res.send({
+			message: 'LOGIN_SUCCESS',
+			user: data
+		});
 	});
 };
 
@@ -80,6 +83,5 @@ module.exports = {
 	signin,
 	userList,
 	signout,
-	importUsers,
-	getUserById
+	importUsers
 };
