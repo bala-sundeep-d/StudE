@@ -49,11 +49,11 @@ We decided to divide these features and develop them as a team. My features are 
 
 
 ### Reference  ###
-[1]"React-Bootstrap", React-bootstrap.github.io, 2021. [Online]. Available: https://react-bootstrap.github.io/getting-started/introduction/. [Accessed: 21- Mar- 2021]
-[2]"Flickr", Flickr, 2021. [Online]. Available: https://www.flickr.com/photos/unitedwaylowermainland/8771398278. [Accessed: 21- Mar- 2021]
-[3]"React Icons", React-icons.github.io, 2021. [Online]. Available: https://react-icons.github.io/react-icons/icons?name=bs. [Accessed: 21- Mar- 2021]
-[4]"How to wait for Axios data before you render it?", CodeWithNico, 2021. [Online]. Available: https://codewithnico.com/react-wait-axios-to-render/. [Accessed: 21- Mar- 2021]
-[5]"How To Create a Custom Scrollbar", W3schools.com, 2021. [Online]. Available: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp. [Accessed: 21- Mar- 2021]
-[6]"Bluebird Promises Tutorial", Guru99.com, 2021. [Online]. Available: https://www.guru99.com/bluebird-promises.html. [Accessed: 21- Mar- 2021]
+1. "React-Bootstrap", React-bootstrap.github.io, 2021. [Online]. Available: https://react-bootstrap.github.io/getting-started/introduction/. [Accessed: 21- Mar- 2021]
+2. "Flickr", Flickr, 2021. [Online]. Available: https://www.flickr.com/photos/unitedwaylowermainland/8771398278. [Accessed: 21- Mar- 2021]
+3. "React Icons", React-icons.github.io, 2021. [Online]. Available: https://react-icons.github.io/react-icons/icons?name=bs. [Accessed: 21- Mar- 2021]
+4. "How to wait for Axios data before you render it?", CodeWithNico, 2021. [Online]. Available: https://codewithnico.com/react-wait-axios-to-render/. [Accessed: 21- Mar- 2021]
+5. "How To Create a Custom Scrollbar", W3schools.com, 2021. [Online]. Available: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp. [Accessed: 21- Mar- 2021]
+6. "Bluebird Promises Tutorial", Guru99.com, 2021. [Online]. Available: https://www.guru99.com/bluebird-promises.html. [Accessed: 21- Mar- 2021]
 
 
