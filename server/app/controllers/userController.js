@@ -34,7 +34,10 @@ const signin = (req, res, next) => {
 		const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' });
 		res.cookie('auth_token', token);
 		console.log(token);
-		return res.send('LOGIN_SUCCESS');
+		return res.send({
+			message: 'LOGIN_SUCCESS',
+			user: data
+		});
 	});
 };
 
@@ -76,20 +79,9 @@ const importUsers = (req, res) => {
 		res.send('import successful');
 	});
 }
-const getUserById = (req, res) => {
-	const userId = req.query && req.query.id;
-	if (!userId) return res.send("User ID is invalid");
-	User.findOne({ "_id": userId }, (err, data) => {
-		console.log(userId);
-		if (err) return res.send(err);
-		return res.send(data);
-	});
-}
-
 module.exports = {
 	signin,
 	userList,
 	signout,
-	importUsers,
-	getUserById
+	importUsers
 };

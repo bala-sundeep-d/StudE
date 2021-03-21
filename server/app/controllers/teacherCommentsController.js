@@ -1,4 +1,7 @@
 const Comments = require('../models/teacherCommentsModel');
+const BlueBirdPromise = require('bluebird');
+const User = require('../models/userModel');
+const _ = require("lodash");
 
 const fetchRecordsByTeacherId = (req, res) => {
     const teacherId = req.query && req.query.teacherId;
@@ -12,9 +15,25 @@ const fetchRecordsByTeacherId = (req, res) => {
 const fetchRecordsByStudentId = (req, res) => {
     const studentId = req.query && req.query.studentId;
     if (!studentId) return res.send("Student ID is invalid");
-    Comments.find({ studentId }, (err, data) => {
+    Comments.find({ studentId }, (err, d) => {
         if (err) return res.send(err);
-        return res.send(data);
+        const data = JSON.parse(JSON.stringify(d));
+        BlueBirdPromise.mapSeries(data, (record, index) => new BlueBirdPromise((resolve, reject) => {
+            const teacherId = record.teacherId;
+            if (teacherId) {
+                User.findOne({ "_id": teacherId }, (err, teacherRecord) => {
+
+                    if (err) return reject(err);
+                    data[index].teacher = teacherRecord;
+                    console.log(data[index]);
+                    return resolve();
+                });
+            } else {
+                return resolve();
+            }
+        }))
+            .then(() => res.send(data))
+            .catch(err => res.send(err));
     });
 }
 

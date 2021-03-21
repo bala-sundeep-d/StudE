@@ -4,9 +4,10 @@ import Card from '../card/Card';
 
 import "./Subjects.style.css";
 import { customColors } from "../../assets/customColors";
-/*  */
+
 const Subjects = (props) => {
-    const unsplashClientId = "nIxtD5mZrdYN_cdZhBrf3M7lrxBJcYUPF9b3QqKsAvU";
+    
+    
     const subjectList = [
         {
             title: 'Database and Warehousing',

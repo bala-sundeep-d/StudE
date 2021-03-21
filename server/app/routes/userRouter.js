@@ -6,6 +6,4 @@ router.get('/', userList);
 
 router.post('/', importUsers);
 
-router.get('/getUserById', getUserById);
-
 module.exports = router;
