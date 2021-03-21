@@ -4,6 +4,8 @@ import { Container, Tabs, Tab } from 'react-bootstrap';
 
 import QnA from '../coursePage/qna/Qna.component';
 import { customColor } from '../../assets/customColors';
+import Notes from '../Notes/Notes';
+import Discussions from '../Discussions/Discussions';
 
 class NavTabs extends Component {
 
@@ -18,10 +20,10 @@ class NavTabs extends Component {
                         <QnA />
                     </Tab>
                     <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Dark_Green }}>
-
+                        <Notes />
                     </Tab>
                     <Tab eventKey="Discussions" title="Discussions" className="CourseTabs" style={{ borderColor: customColor.Green }}>
-
+                        <Discussions />
                     </Tab>
                 </Tabs>
             </Container>
