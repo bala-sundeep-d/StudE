@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
 import './Dashboard.style.css'
-import TopNavbar from '../topNavbar/Topnavbar.component'
+import TopNavbar from '../TopNavbar/Topnavbar.component'
 import Logout from '../logout/Logout';
 import Subjects from "../subjects/Subjects.component"
 import CoursePage from '../coursePage/CoursePage.component';
