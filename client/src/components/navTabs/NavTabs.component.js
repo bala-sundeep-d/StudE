@@ -1,3 +1,4 @@
+/* Author: Prashant Sanjay Sarvi */
 import './NavTabs.style.css'
 import React, { Component } from "react";
 import { Container, Tabs, Tab } from 'react-bootstrap';

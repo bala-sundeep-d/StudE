@@ -1,3 +1,4 @@
+/* Author: Prashant Sanjay Sarvi */
 const QnA = require('../models/qnaModel');
 
 const fetchQnA = (req, res) => {
