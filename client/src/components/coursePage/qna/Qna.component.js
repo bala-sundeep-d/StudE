@@ -1,3 +1,5 @@
+/* Author: Prashant Sanjay Sarvi */
+
 import React from 'react';
 import './Qna.style.css';
 import Axios from 'axios';

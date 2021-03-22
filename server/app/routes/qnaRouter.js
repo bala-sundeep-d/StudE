@@ -1,3 +1,4 @@
+/* Author: Prashant Sanjay Sarvi */
 const express = require('express');
 const router  = express.Router();
 const { fetchQnA, addQnA, updateQnA } = require('../controllers/qnaController');
