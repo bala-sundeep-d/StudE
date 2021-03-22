@@ -1,3 +1,6 @@
+/*
+Author : Nikunj Goenka
+*/
 const Comments = require('../models/teacherCommentsModel');
 const BlueBirdPromise = require('bluebird');
 const User = require('../models/userModel');
