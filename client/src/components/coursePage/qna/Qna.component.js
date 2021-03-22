@@ -8,7 +8,7 @@ class Qna extends React.Component {
         super(props);
         this.state = { isLoading: true, allQnA: undefined };
     }
-    compnentDidMount(){
+    componentDidMount(){
         const userId= localStorage.getItem('userId');
         axios.get('/qna/getPostById?chapterId=' +'1').then(response => {
             const allQnA = response.data;
