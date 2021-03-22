@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-/* Author: Prashant Sanjay Sarvi */
-=======
+
 /*
 Author : Nikunj Goenka
 */
->>>>>>> feature/nikunj
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
