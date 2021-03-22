@@ -1,26 +1,44 @@
 import React from 'react';
 import './Qna.style.css';
+import Axios from 'axios';
+import axios from 'axios';
 
 class Qna extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { isLoading: true, allQnA: undefined };
+    }
+    compnentDidMount(){
+        const userId= localStorage.getItem('userId');
+        axios.get('/qna/getPostById?chapterId=' +'1').then(response => {
+            const allQnA = response.data;
+            this.setState({allQnA: allQnA});
+            console.log(this.state.qna);
+            this.setState({ isLoading: false });
+        });
+    }
     render() {
+     
+        const { isLoading, allQnA } = this.state;
+
+    if (isLoading) {
+      return <div className="App">Loading...</div>;
+    }
         return (
             <div className="app-data"
                 style={{ padding: "15px", background: "rgba(218, 124, 17, 0.61)", borderRadius: '15px', color: "#FFFFE0" }}>
-                <h3>Q1. Where is the question 1?</h3>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+           {
+               allQnA.map(qna=>
+                <div key={qna._id}> <h3>{qna.question}</h3>
+                <p>{qna.answer}</p>
                 <br />
-                <hr />
-                <h3>Q2. Where is the question 2?</h3>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                <br />
-                <hr />
-                <h3>Q3. Where is the question 3?</h3>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                <br />
-                <hr />
-                <h3>Q4. Where is the question 4?</h3>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 <hr /></div>
+                )
+           }
+           </div>
+            
+                
         );
     }
 }

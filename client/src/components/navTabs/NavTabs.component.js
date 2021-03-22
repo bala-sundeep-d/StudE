@@ -6,6 +6,7 @@ import QnA from '../coursePage/qna/Qna.component';
 import { customColor } from '../../assets/customColors';
 import Notes from '../Notes/Notes';
 import Discussions from '../Discussions/Discussions';
+import Chapters from '../coursePage/chapters/Chapters.component';
 
 class NavTabs extends Component {
 
@@ -14,7 +15,7 @@ class NavTabs extends Component {
             <Container >
                 <Tabs fill defaultActiveKey="chapters" id="TabLink" className="CourseTabBar" style={{ borderRadius: '10px 10px 0px 0px' }}>
                     <Tab eventKey="chapters" title="Chapters" className="CourseTabs" style={{ borderColor: customColor.Red }} >
-
+                        <Chapters/>
                     </Tab>
                     <Tab eventKey="Qna" title="QnA" className="CourseTabs" style={{ borderColor: customColor.Yellow }}>
                         <QnA />
