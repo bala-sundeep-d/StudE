@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { withRouter, useHistory } from 'react-router-dom';
 import { BsPower } from "react-icons/bs";
 
-import './logout.style.css';
+import './Logout.style.css';
 
 const Logout = () => {
     let history = useHistory();
