@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
+import axios from 'axios';
 import './NewForum.css';
 
 class NewForum extends React.Component {
@@ -45,10 +46,28 @@ class NewForum extends React.Component {
     }
   }
 
+  addPost = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const subjectId = "11";
+    const title = this.state.title;
+    const message = this.state.body;
+    console.log(title, subjectId, message)
+    axios.post('/discussions/', { subjectId, title, message })
+        .then(res => {
+            console.log(res.data);
+            // if (res && res.data === "POST_SUCCESS") {
+            //     this.props.history.push('/');
+            // } else {
+            //   res.data === "POST_FAILED";
+            // }
+        });
+}
+
   render() {
     return (
       <div className="new_post">
-        <form >
+        <form onSubmit={this.addPost}>
           <label>Title:</label>
           <input type="text" value={this.state.title} onInput={this.handleChangeTitle} required />
           <label>Body:</label>
@@ -58,7 +77,7 @@ class NewForum extends React.Component {
             <input type="submit" variant="contained" value="Post" />
           </div>
           <div id="submitOK" className="submitOK">
-            <input type="button" variant="contained" value="Post" onClick={(e) => this.showModal(e)} />
+            <input type="submit" variant="contained" value="Post" />
           </div>
           {this.state.open ? (
             <Modal body="Posted Successfully" />

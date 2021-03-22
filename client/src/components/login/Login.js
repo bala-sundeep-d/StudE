@@ -55,12 +55,12 @@ class Login extends React.Component {
                         <Form onSubmit={this.login} autoComplete="off">
                             <Form.Group controlId="userId">
                                 <Form.Control type="text"
-                                    placeholder='user id = 123456' onChange={this.updateUserId} />
+                                    placeholder='user id = 12345' onChange={this.updateUserId} />
                             </Form.Group>
 
                             <Form.Group controlId="password">
                                 <Form.Control type="password"
-                                    placeholder='password = pass@123' onChange={this.updatePassword} />
+                                    placeholder='password = dasari@123' onChange={this.updatePassword} />
                             </Form.Group>
 
                             <Button type="submit" size="sm" className="login-submit">

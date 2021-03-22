@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import NewForum from "./NewForum.js";
 import Comments from './Comments.js';
+import _ from 'lodash';
 import './Discussions.css';
 
 function Discussions() {
   
   const [showNew, showNewPost] = React.useState(false);
   const handleNew = () => showNewPost(!showNew);
+
+  const [posts, addPosts] = useState([]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    const getAllDiscussions = "/discussions?subjectId=11";
+
+    axios.get(getAllDiscussions).then(response => {
+        let discussions = response.data;
+        const temp = posts.concat(discussions);
+        if (!posts || discussions.length !== posts.length) addPosts(_.filter(temp), (item) => item !== null);
+        console.log(posts, discussions);
+    });
+
+}, [posts]);
   const ShowPosts = () => (
     
       <NewForum />
@@ -30,19 +47,26 @@ function Discussions() {
       <h3 className="create_newPost"onClick={handleNew}>Create new discussion post</h3>
       { showNew ? <ShowPosts /> : null }
       <div className="posts">
-        <i className="post_userimage"><i className="bi bi-person-circle uicon"/></i>
-        <i className="post_username">User <span> at 1:15pm</span></i>
-        
+        {
+          posts.map((post, index) =>  {
+            return (
+            <div key={index}>
+            <i className="post_userimage"><i className="bi bi-person-circle uicon"/></i>
+            <i className="post_username">User <span> at 1:15pm</span></i>
+            
 
-        <div className="post_options">
-          <i onClick={handleShowOptions} className="bi bi-three-dots-vertical"/>
-          { showOptions ? <ShowPostOptions /> : null }          
-        </div>
-        <br />
+            <div className="post_options">
+              <i onClick={handleShowOptions} className="bi bi-three-dots-vertical"/>
+              { showOptions ? <ShowPostOptions /> : null }          
+            </div>
+            <br />
 
-        <h3 className="post_title">Title</h3>
-        <h5 className="post_body">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available. In the interim we would suggest not upgrading to "Big Sur" if the Panopto desktop recorder is needed, or use Panopto Capture, our web browser based recording solution.</h5>
-        <Comments />
+            <h3 className="post_title">{post.title}</h3>
+            <h5 className="post_body">{post.message}</h5>
+            <Comments />
+            </div>
+          )})
+        }
       </div>
     </div>
   );
