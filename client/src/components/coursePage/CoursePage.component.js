@@ -1,3 +1,6 @@
+/*
+Author : Nikunj Goenka
+*/
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
@@ -13,7 +16,7 @@ function CoursePage(props) {
         <Row>
             <Row>
                 <Col id="courseTitle"> <h1> {courseId}</h1> </Col></Row>
-                <NavTabs/>
+            <NavTabs />
         </Row >
     );
 }
