@@ -19,7 +19,7 @@ password: goenka@123
 
 ## List of files Created: </Title>
 Owner| File Name  | Feature  |  File Path
-------------- | ----------------------- | ------------- 
+------------- |------------- | ----------------------- | ------------- 
 Nikunj Goenka|CoursePage.component.js | Landing Page  | client\src\components\coursePage\CoursePage.component.js 
 Nikunj Goenka|CoursePage.style.css | Landing Page | client\src\components\coursePage\CoursePage.style.css 
 Nikunj Goenka|Parentview.component.js | Parent Page | client\src\components\parentView\Parentview.component.js 
