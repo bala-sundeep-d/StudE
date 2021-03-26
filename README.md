@@ -17,7 +17,7 @@ user-id: 12346
 password: goenka@123
 ````
 
-## List of files Created: </Title>
+## List of files Created:
 Owner| File Name  | Feature  |  File Path
 ------------- |------------- | ----------------------- | ------------- 
 Nikunj Goenka|CoursePage.component.js | Landing Page  | client\src\components\coursePage\CoursePage.component.js 
