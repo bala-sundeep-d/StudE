@@ -1,13 +1,11 @@
 /*
 Author : Nikunj Goenka
 */
-
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
 import Axios from 'axios';
 import './TeacherComment.style.css';
 import {
-    BsFillPersonFill,
     BsFillAlarmFill,
     BsFillAwardFill,
     BsExclamationTriangleFill,
@@ -16,7 +14,6 @@ import {
 } from 'react-icons/bs';
 import CommentBox from "./commentBox/CommentBox.component"
 import axios from 'axios';
-
 
 /* React Icons to show Comment Type */
 var commentTypeIcon = {

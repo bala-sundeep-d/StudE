@@ -4,5 +4,8 @@ export const customColor = {
     Pink: "#FA7C92",
     Green: "#6fc191",
     Dark_Blue: "#465c6e",
-    Dark_Green: "#999e71"
+    Dark_Green: "#999e71",
+    Notification_Success: "#5cb85c",
+    Notification_Error: "#d9534f",
+    Notification_Info: "#5bc0de"
 };
