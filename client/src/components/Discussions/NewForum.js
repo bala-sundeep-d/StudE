@@ -47,8 +47,8 @@ class NewForum extends React.Component {
   }
 
   addPost = e => {
-    e.preventDefault();
-    e.stopPropagation();
+   // e.preventDefault();
+   // e.stopPropagation();
     const subjectId = "11";
     const title = this.state.title;
     const message = this.state.body;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Modal from '../Modal/Modal';
 import './Notes.css';
+import axios from 'axios';
 
 class NewNotes extends Component {
   constructor(props) {
@@ -42,6 +43,15 @@ class NewNotes extends Component {
   handleSubmit(event) {
     if (this.state.title.length === 0 || this.state.body.length === 0) {
       event.preventDefault();
+    }else{
+      const subjectId = "11";
+      const title = this.state.title;
+      const message = this.state.body;
+      console.log(title, subjectId, message)
+    axios.post('/notes/', { subjectId, title, message })
+        .then(res => {
+            console.log(res.data);
+        });
     }
   }
 
@@ -57,8 +67,8 @@ class NewNotes extends Component {
           <div id="submitError">
             <input type="button" variant="contained" value="Save Note" />
           </div>
-          <div id="submitOK" className="submitOK" onClick={(e) => this.state.onSave()}>
-            <input type="button" variant="contained" value="Save Note" />
+          <div id="submitOK" className="submitOK" onClick={this.handleSubmit}>
+            <input type="submit" variant="contained" value="Save Note" />
           </div>
 
         </form>

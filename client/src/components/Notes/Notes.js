@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import {
   Redirect, useLocation
 } from "react-router-dom";
 import NewNotes,{save} from './NewNotes';
 import Note from './Note';
 import './Notes.css';
+import _ from 'lodash';
+import axios from 'axios';
 
 
 
 const Notes = () => {
 
-  const notesArray = [
+  const [notesArray, addNotes] = useState([]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    const getAllNotes = "/notes?subjectId=11";
+
+    axios.get(getAllNotes).then(response => {
+        let notes = response.data;
+        const temp = notesArray.concat(notes);
+        if (!notesArray || notes.length !== notesArray.length) addNotes(_.filter(temp), (item) => item !== null);
+        console.log(notesArray, notes);
+    });
+
+}, [notesArray]);
+
+  /*const notesArray = [
     {
       title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -35,7 +52,7 @@ const Notes = () => {
       title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
-  ]
+  ]*/
   
  /* const handleNew = () => showNewNotes(!showNew);
   const ShowNotes = () => (
@@ -72,7 +89,7 @@ const Notes = () => {
       {
         notesArray.map((note, index) => 
         (<div onClick={()=>toggleView('edit',index)}>
-        <Note key={index} title={note.title} body={note.body} noteId={index} onSave={()=>toggleView("view")} />
+        <Note key={index} title={note.title} message={note.message} noteId={index} onSave={()=>toggleView("view")} />
         </div>)
         )
       }
@@ -80,7 +97,7 @@ const Notes = () => {
     </div>    
     )
     :
-    (<NewNotes title={notesArray[`${noteId}`]&& notesArray[`${noteId}`].title} body={notesArray[`${noteId}`]&& notesArray[`${noteId}`].body} />)
+    (<NewNotes title={notesArray[`${noteId}`]&& notesArray[`${noteId}`].title} body={notesArray[`${noteId}`]&& notesArray[`${noteId}`].message} />)
     }
     </div>
   );

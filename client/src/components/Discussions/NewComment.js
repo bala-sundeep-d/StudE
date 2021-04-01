@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
+import axios from 'axios';
 
 
 class NewComment extends React.Component {
@@ -20,6 +21,14 @@ class NewComment extends React.Component {
             event.preventDefault();
         }
         else {
+            const discussionId = "1";
+            const userId = "User";
+            const message = this.state.body;
+            console.log(discussionId, userId, message)
+    axios.post('/comments/', { discussionId, userId, message })
+        .then(res => {
+            console.log(res.data);
+        });
             this.setState({ open: !this.state.open })
         }
     }
