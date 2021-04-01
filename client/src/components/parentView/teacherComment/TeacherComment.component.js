@@ -1,9 +1,12 @@
-/*
-Author : Nikunj Goenka
-*/
+/**
+ * @author Nikunj Goenka
+ * @email nikunjgoenka@dal.ca
+ * @create date 2021-03-21 06:30:08
+ * @modify date 2021-03-31 21:32:27
+ * @desc Techers Comments Component
+ */
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Spinner } from 'react-bootstrap';
-import Axios from 'axios';
+import { Container, Row, Button, Spinner } from 'react-bootstrap';
 import './TeacherComment.style.css';
 import {
     BsFillAlarmFill,
@@ -31,9 +34,6 @@ const TeacherComments = () => {
     useEffect(() => {
         const userId = localStorage.getItem("userId");
 
-        console.log(userId);
-
-        //const userId = "6052476ab8c1ca2afcbc791c";
         const urlToGetAllComments = "/teacherComments/getByStudentId?studentId=" + userId;
 
         axios.get(urlToGetAllComments).then(response => {
@@ -41,7 +41,6 @@ const TeacherComments = () => {
             setAllComments(comments);
             setLoading(false);
         });
-
     }, []);
 
 
@@ -57,22 +56,27 @@ const TeacherComments = () => {
     }
 
     return (
-        <Container className="TeacherCommentsContainer">
-            <Row >
-                {
-                    allComments.map((comment, index) =>
-                        <CommentBox
-                            key={index}
-                            teacher={comment.teacher.firstName + " " + comment.teacher.lastName + " says: "}
-                            type={commentTypeIcon[comment.type]}
-                            typeText={comment.type}
-                            comment={comment.comment}
-                            date={"On: " + (comment.timestamp.split("T"))[0]}
-                        />
-                    )
-                }
+        <Row>
+            <Row className="ParentTabHeader">
+                <h1>Teacher's Comments</h1>
             </Row>
-        </Container>
+            <Row className="ParentContentContainer">
+                <Row >
+                    {
+                        allComments.map((comment, index) =>
+                            <CommentBox
+                                key={index}
+                                teacher={comment.teacher.firstName + " " + comment.teacher.lastName + " says: "}
+                                type={commentTypeIcon[comment.type]}
+                                typeText={comment.type}
+                                comment={comment.comment}
+                                date={"On: " + (comment.timestamp.split("T"))[0]}
+                            />
+                        )
+                    }
+                </Row>
+            </Row>
+        </Row>
     );
 }
 
