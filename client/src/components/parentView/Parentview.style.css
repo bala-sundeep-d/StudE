@@ -11,6 +11,9 @@ Author : Nikunj Goenka
     font-size: 3vw;
     font-weight: bold;
 }
+.ParentTabHeader h1{
+    width: 100%;
+}
 .ParentContentContainer{
     height: 70vh;
     overflow-y: scroll;

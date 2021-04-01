@@ -11,10 +11,7 @@ const ParentView = () => {
 
     return (
         <Container className="ParentTabContainer">
-            <h1 className="ParentTabHeader">Teacher's Comments</h1>
-            <Row className="ParentContentContainer">
-                <TeacherComment></TeacherComment>
-            </Row>
+            <TeacherComment></TeacherComment>
         </Container>
     )
 }
