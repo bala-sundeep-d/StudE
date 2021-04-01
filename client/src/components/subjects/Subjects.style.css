@@ -1,3 +1,10 @@
+/**
+ * @author Nikunj Goenka
+ * @email nikunjgoenka@dal.ca
+ * @create date 2021-04-01 12:11:01
+ * @modify date 2021-04-01 12:11:32
+ * @desc Subjects Css
+ */
 
 header{
     color: #fff;
@@ -6,7 +13,7 @@ header{
     width: 100%;
 }
 .allSubjectsCardDeck{
-    max-height: 73vh; /* Max-Height: https://www.w3schools.com/cssref/pr_dim_max-height.asp */
+    max-height: 70vh; /* Max-Height: https://www.w3schools.com/cssref/pr_dim_max-height.asp */
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;

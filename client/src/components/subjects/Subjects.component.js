@@ -2,7 +2,7 @@
  * @author Nikunj Goenka
  * @email nikunjgoenka@dal.ca
  * @create date 2021-03-31 20:36:21
- * @modify date 2021-03-31 21:29:38
+ * @modify date 2021-04-01 12:11:41
  * @desc Page to show subjects a user have
  */
 import React, { useState, useEffect } from 'react';
@@ -21,8 +21,6 @@ const Subjects = (props) => {
         const userId = localStorage.getItem("userId");
 
         console.log(userId);
-
-        //const userId = "6052476ab8c1ca2afcbc791c  6052476ab8c1ca2afcbc791d";
         const urlToGetAllSubjects = "/subjects/getByStudentId?studentId=" + userId;
 
         axios.get(urlToGetAllSubjects).then(response => {
