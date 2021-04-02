@@ -1,47 +1,74 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form, Card } from 'react-bootstrap';
+import { Button, Form, Card } from 'react-bootstrap';
+import axios from 'axios';
+import './Dictionary.css';
 
-function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal fade="false"
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
 const Dictionary = () => {
 
     const [modalShow, setModalShow] = useState(false);
+    const [searchText, updateKeyValue] = useState(null);
+    const [meaning, updateMeaningValue] = useState('Oxford dictionary response goes here...');
+
+    const toggleModal = (e, flag) => {
+      e.stopPropagation();
+      updateKeyValue(null);
+      updateMeaningValue('Oxford dictionary response goes here...');
+      setModalShow(flag);
+    }
+
+    const updateKey = (e) => {
+      e.stopPropagation();
+      updateKeyValue(e.target && e.target.value);
+    }
+
+    const updateMeaning = (e) => {
+      axios.get(`/dictionary/find?word=${searchText}`)
+        .then(res => {
+          const wordMeaning = res.data;
+          updateMeaningValue(wordMeaning);
+          console.log(wordMeaning, 'mmm');
+        })
+        .catch(e => console.log(e));
+    }
 
     return (
         <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
+      <Button variant="primary" onClick={(e) => toggleModal(e, true)}
+      style={{position:"fixed", zIndex:1000,
+      borderRadius: "50px", width: "50px", height: "50px",
+      bottom: "10%", right: "3%"}}>
+        o
       </Button>
-
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      <div className="modal-wrapper"
+      style={{
+      transform: modalShow ? 'translateY(-100vh)' : 'translateY(0vh)',
+      opacity: modalShow ? '1' : '0'
+      }}>
+      <div className="modal-header">
+        <Form.Control type="text" placeholder="Enter a word to search"
+              style={{position: "relative", width: "85%", height: "95%", margin: "0px",
+              marginRight: "2px", borderRadius: "0px", float:"left"}} 
+              onChange={updateKey} />
+        
+        <Button style={{ background:"#6ec4db", border: "#6ec4db", 
+            position: "relative", width: "15%", height: "95%", margin: "0px", float:"left"}}
+            onClick={updateMeaning} >
+            search
+        </Button>
+      </div>
+      <div className="modal-body">
+      <div style={{position: "relative", width: "100%",
+        height: "100%", margin: "0px", float:"left", border: "1px solid #d0cccc",
+        boxShadow:"1px 1px #d0cccc", borderRadius: "5px"}}>
+      {meaning}
+                        </div>
+      </div>
+      <div className="modal-footer">
+        <Button style={{ background:"rgb(255, 80, 80)", border: "rgb(255, 80, 80)", 
+          position: "relative", width: "15%", height: "95%", margin: "0px", float:"right"}}
+          onClick={(e) => toggleModal(e, false)}>Close</Button>
+        </div>
+      </div>
     </>            
     );
 }

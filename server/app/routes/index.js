@@ -8,6 +8,7 @@ const discussionsRouter = require('./discussionRouter');
 const notesRouter = require('./noteRouter');
 const subjectsRouter = require('./subjectRouter');
 const chapterRouter = require('./chapterRouter');
+const dictionaryRouter = require('./dictionaryRouter');
 
 router.use('/users', userRouter);
 router.use('/qna', qnaRouter);
@@ -17,5 +18,6 @@ router.use('/discussions', discussionsRouter);
 router.use('/notes', notesRouter);
 router.use('/subjects', subjectsRouter);
 router.use('/chapters', chapterRouter);
+router.use('/dictionary', dictionaryRouter);
 
 module.exports = router;

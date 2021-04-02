@@ -4,7 +4,12 @@ const User = require('../models/userModel');
 const authenticate = (req, res, next) => {
 	let mytoken = req.cookies.auth_token;
 	if (mytoken) {
-		mytoken = jwt.verify(mytoken, process.env.SECRET);
+		try {
+			mytoken = jwt.verify(mytoken, process.env.SECRET);
+		} catch(e) {
+			res.clearCookie("auth_token");
+			return res.redirect("/");
+		}
 		User.findOne({ userId: mytoken.currentUser }, (err, user) => {
 			if (err) return res.send("unable to fetch user");
 			if (user && user.userId) {
