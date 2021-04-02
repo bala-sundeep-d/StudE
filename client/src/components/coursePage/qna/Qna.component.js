@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Qna.style.css';
-import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 class Qna extends React.Component {
@@ -12,10 +12,11 @@ class Qna extends React.Component {
     }
     componentDidMount(){
         const userId= localStorage.getItem('userId');
-        axios.get('/qna/getPostById?chapterId=' +'1').then(response => {
+        console.log(this.props.location.state, 'asdsadsa');
+        axios.get('/qna/getPostById?chapterId=' + this.props.location.state.cid).then(response => {
             const allQnA = response.data;
             this.setState({allQnA: allQnA});
-            console.log(this.state.qna);
+            console.log(response.data);
             this.setState({ isLoading: false });
         });
     }
@@ -45,4 +46,4 @@ class Qna extends React.Component {
     }
 }
 
-export default Qna;
+export default withRouter(Qna);
