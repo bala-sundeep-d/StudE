@@ -57,10 +57,7 @@ function Discussions() {
             <i className="post_username">User </i>
             
 
-            <div className="post_options">
-              <i onClick={handleShowOptions} className="bi bi-three-dots-vertical"/>
-              { showOptions ? <ShowPostOptions /> : null }          
-            </div>
+          
             <br />
 
             <h3 className="post_title">{post.title}</h3>
