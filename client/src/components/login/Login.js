@@ -36,7 +36,8 @@ class Login extends React.Component {
                 if (res && res.data.message === "LOGIN_SUCCESS") {
 
                     localStorage.setItem('userId', res.data.user._id);
-                    console.log(localStorage.getItem('userId'));
+                    localStorage.setItem('userRole', res.data.user.role);
+
                     this.props.history.push('/');
 
                 } else {

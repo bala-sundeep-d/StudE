@@ -41,6 +41,8 @@ const fetchRecordsByStudentId = (req, res) => {
 }
 
 const createTeacherComment = (req, res) => {
+    console.log(req.body);
+    console.log(req.body.studentId);
     const user = req.context.get('user');
     if (!user || user.role !== 'teacher') return res.send("user cannot perform this operation");
     const currentUserId = user && user._id;
