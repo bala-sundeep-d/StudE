@@ -15,19 +15,20 @@
 }
 
 #TabLink-tab-chapters{
-    background-color:#e16c6c ;
+    background-color: rgba(255, 166, 0, 0.644) ;
     border-color: transparent;
+    color: white;
 }
 #TabLink-tab-Qna{
-    background-color:#e0b84e ;
+    background-color:rgba(224, 198, 104, 0.829) ;
     border-color: transparent;
 }
 #TabLink-tab-Notes{
-    background-color:#999e71 ;
+    background-color:rgba(150, 188, 98, 0.534) ;
     border-color: transparent;
 }
 #TabLink-tab-Discussions{
-    background-color:#6fc191 ;
+    background-color:rgba(209, 152, 197, 0.884) ;
     border-color: transparent;
 }
 

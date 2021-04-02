@@ -1,8 +1,8 @@
 export const customColor = {
-    Red: "#e16c6c",
-    Yellow: "#e0b84e",
-    Pink: "#FA7C92",
-    Green: "#6fc191",
+    Orange: "rgba(255, 166, 0, 0.281)",
+    Yellow: "rgba(224, 198, 104, 0.575)",
+    Green: "rgba(150, 188, 98, 0.438)",
+    Pink: "rgba(209, 152, 197, 0.459)",
     Dark_Blue: "#465c6e",
     Dark_Green: "#999e71",
     Notification_Success: "#5cb85c",

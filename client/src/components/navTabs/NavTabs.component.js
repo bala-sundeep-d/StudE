@@ -15,16 +15,16 @@ class NavTabs extends Component {
         return (
             <Container >
                 <Tabs fill defaultActiveKey="chapters" id="TabLink" className="CourseTabBar" style={{ borderRadius: '10px 10px 0px 0px' }}>
-                    <Tab eventKey="chapters" title="Chapters" className="CourseTabs" style={{ borderColor: customColor.Red }} >
+                    <Tab eventKey="chapters" title="Chapters" className="CourseTabs" style={{ borderColor: customColor.Orange }} >
                         <Chapters/>
                     </Tab>
                     <Tab eventKey="Qna" title="QnA" className="CourseTabs" style={{ borderColor: customColor.Yellow }}>
                         <QnA />
                     </Tab>
-                    <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Dark_Green }}>
+                    <Tab eventKey="Notes" title="Notes" className="CourseTabs" style={{ borderColor: customColor.Green }}>
                         <Notes />
                     </Tab>
-                    <Tab eventKey="Discussions" title="Discussions" className="CourseTabs" style={{ borderColor: customColor.Green }}>
+                    <Tab eventKey="Discussions" title="Discussions" className="CourseTabs" style={{ borderColor: customColor.Pink }}>
                         <Discussions />
                     </Tab>
                 </Tabs>
