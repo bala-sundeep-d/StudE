@@ -34,10 +34,10 @@ const Dictionary = () => {
     return (
         <>
       <Button variant="primary" onClick={(e) => toggleModal(e, true)}
-      style={{position:"fixed", zIndex:1000,
+      style={{position:"fixed", zIndex:1000, background:"#6ec4db",
       borderRadius: "50px", width: "50px", height: "50px",
       bottom: "10%", right: "3%"}}>
-        o
+        <i className="dict-icon bi bi-search"></i>
       </Button>
       <div className="modal-wrapper"
       style={{

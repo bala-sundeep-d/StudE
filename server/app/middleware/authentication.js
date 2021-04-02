@@ -8,6 +8,7 @@ const authenticate = (req, res, next) => {
 			mytoken = jwt.verify(mytoken, process.env.SECRET);
 		} catch(e) {
 			res.clearCookie("auth_token");
+			req.session.destroy();
 			return res.redirect("/");
 		}
 		User.findOne({ userId: mytoken.currentUser }, (err, user) => {
