@@ -47,7 +47,7 @@
     
 }
 .CourseTabs::-webkit-scrollbar-thumb {
-    background: #ffbd0a;
+    background: #ffbe0aab;
     border-radius: 10px;
 }
 .CourseTabs::-webkit-scrollbar-thumb:hover {

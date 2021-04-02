@@ -36,7 +36,7 @@ class Qna extends React.Component {
            {
                allQnA.map(qna=>
                 <div key={qna._id}> <h3>{qna.question}</h3>
-                <h5>{qna.answer}</h5>
+                <h6>{qna.answer}</h6>
                 <br />
                 <hr /></div>
                 )
