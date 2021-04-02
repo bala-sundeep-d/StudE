@@ -1,6 +1,9 @@
 /*
 Author : Nikunj Goenka
 */
+
+@import "../Parentview.style.css";
+
 .TeacherCommentsContainer{
 	padding-top: 2vh;
 }
