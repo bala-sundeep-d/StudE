@@ -12,7 +12,7 @@ const {
     fetchSubjectsOfStudent,
     addSubject,
     updateSubject
-} = require('../controllers/SubjectController');
+} = require('../controllers/subjectController');
 
 router.post('/addSubject', addSubject);
 

@@ -15,10 +15,8 @@ function CoursePage(props) {
     const currentPath = useLocation().pathname;
     return (
         <Row>
-            <Row>
-                <Col id="courseTitle"> <h1> {courseId}</h1> </Col></Row>
             <NavTabs />
-        </Row >
+        </Row>
     );
 }
 

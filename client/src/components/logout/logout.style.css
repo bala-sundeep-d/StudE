@@ -1,12 +1,12 @@
 .logoutButton{
     background-color: rgb(255, 80, 80);
     border-color: rgb(255, 80, 80);
-    width: 3em;
-    height: 3em;
+    width: 3.5em;
+    height: 3.5em;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 40%;
-}
-i{
-    vertical-align: super;
+    padding: 0px;
+    margin: 0px;
+    align-items: center;
 }
