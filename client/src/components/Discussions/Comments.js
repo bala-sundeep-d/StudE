@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Comments.css';
 import NewComment from "./NewComment.js";
 
-function Comments() {
+function Comments(props) {
   const [commentOptions, showCommentOptions] = React.useState(false);
   const handleCommentOptions = () => showCommentOptions(!commentOptions);
   const ShowCommentOptions = () => (
@@ -14,8 +15,24 @@ function Comments() {
 
   const [viewComments, showComments] = React.useState(false);
   const handleShowComments = () => showComments(!viewComments);
-  const ShowComments = () => (
+  const [comments, addComments] = useState([]);
 
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    const getAllComments = "/comments?discussionId="+props.discussionId;
+
+    axios.get(getAllComments).then(response => {
+        let comment = response.data;
+        const temp = comments.concat(comment);
+        if (!comments || comment.length !== comments.length) addComments(_.filter(temp), (item) => item !== null);
+        console.log(comments, comment);
+    });
+
+}, [comments]);
+
+  const ShowComments = () => (
+comments.map((comment, index) =>  {
+  return(
     <div className="post_comments_content">
       <i className="bi bi-person-circle" />
       <i className="comment_user_name">User</i>
@@ -23,26 +40,13 @@ function Comments() {
         <i onClick={handleCommentOptions} className="bi bi-three-dots-vertical" />
         {commentOptions ? <ShowCommentOptions /> : null}
       </div>
-      <h5 className="comment_text">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available.</h5>
+     <h5 className="comment_text">
+       {comment.message}
+             </h5>
 
 
-      <i className="bi bi-person-circle" />
-      <i className="comment_user_name">User</i>
-      <h5 className="comment_text">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available.</h5>
-
-      <i className="bi bi-person-circle" />
-      <i className="comment_user_name">User</i>
-      <h5 className="comment_text">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available.</h5>
-
-      <i className="bi bi-person-circle" />
-      <i className="comment_user_name">User</i>
-      <h5 className="comment_text">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available.</h5>
-
-      <i className="bi bi-person-circle" />
-      <i className="comment_user_name">User</i>
-      <h5 className="comment_text">Currently, Panopto does not support the Mac OS "Big Sur" update, but is anticipated to begin support in Panopto Recorder version 10.0+ which is slated for an early release in Q1 of 2021. My sincerest apologies for that. Updates will be released once they are available.</h5>
-
-    </div>
+     
+    </div>)})
   )
 
 
@@ -53,7 +57,7 @@ function Comments() {
         <div className="post_comments_icon"><i className="bi bi-chat-dots"></i></div>
       </div>
       { viewComments ? <ShowComments /> : null}
-      <NewComment />
+      <NewComment discussionId={props.discussionId}/>
     </div>
   );
 }

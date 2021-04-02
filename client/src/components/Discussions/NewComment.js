@@ -21,8 +21,8 @@ class NewComment extends React.Component {
             event.preventDefault();
         }
         else {
-            const discussionId = "1";
-            const userId = "User";
+            const discussionId = this.props.discussionId;
+            const userId = localStorage.getItem('userId');
             const message = this.state.body;
             console.log(discussionId, userId, message)
     axios.post('/comments/', { discussionId, userId, message })

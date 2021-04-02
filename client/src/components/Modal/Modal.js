@@ -9,6 +9,7 @@ class Modal extends React.Component {
   }
 
   hideModal(e) {
+    location.reload();
     this.setState({ open: !this.state.open })
   }
 

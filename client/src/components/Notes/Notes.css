@@ -1,5 +1,6 @@
-.container {
-    background-color: white;
+.notes_container {
+  background-color: white;
+  align-content: flex-end;
 }
 .cards {
     padding: 2rem;
@@ -9,6 +10,7 @@
   h1 {
     text-align: center;
   }
+
   
   .cards__container {
     display: flex;
@@ -41,6 +43,7 @@
     padding:4%;
     border-radius: 15px;
     background-color: rgb(197, 209, 247);
+    text-align: center;
   }
   
   .notes:hover {
@@ -54,7 +57,9 @@
   }
   
   .notes_options {
-    float: right;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
   }
   
   .options_content {

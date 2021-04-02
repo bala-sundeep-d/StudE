@@ -30,29 +30,31 @@ function Discussions() {
       
    
     )
-
+    
     const [showOptions, showPostOptions] = React.useState(false);
     const handleShowOptions = () => showPostOptions(!showOptions);
     const ShowPostOptions = () => (
       <div className="options_content">
               <a href="/">Edit</a>
-              <a href="/">Delete</a>
+              <a onClick={deleteOption}>Delete</a>
       </div>
     )
 
-
+    const deleteOption = () => ( 
+      console.log("Clicked delete")
+    )
   return (
     <div className="discuss_container">
       <h1>Discussion Forums</h1>
       <h3 className="create_newPost"onClick={handleNew}>Create new discussion post</h3>
       { showNew ? <ShowPosts /> : null }
-      <div className="posts">
+      <div >
         {
           posts.map((post, index) =>  {
             return (
-            <div key={index}>
+            <div className="posts" key={index}>
             <i className="post_userimage"><i className="bi bi-person-circle uicon"/></i>
-            <i className="post_username">User <span> at 1:15pm</span></i>
+            <i className="post_username">User </i>
             
 
             <div className="post_options">
@@ -63,7 +65,7 @@ function Discussions() {
 
             <h3 className="post_title">{post.title}</h3>
             <h5 className="post_body">{post.message}</h5>
-            <Comments />
+            <Comments discussionId={post._id}/>
             </div>
           )})
         }

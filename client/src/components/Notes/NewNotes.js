@@ -43,7 +43,19 @@ class NewNotes extends Component {
   handleSubmit(event) {
     if (this.state.title.length === 0 || this.state.body.length === 0) {
       event.preventDefault();
-    }else{
+    }
+    else if(this.props.title.length !== 0 || this.props.body.length !== 0){
+      const subjectId = "11";
+      const title = this.state.title;
+      const message = this.state.body;
+
+      console.log(title, subjectId, message)
+      axios.patch('/notes/', { title, message, noteId:this.props.noteId })
+        .then(res => {
+            console.log(res.data);
+        });
+    }
+    else{
       const subjectId = "11";
       const title = this.state.title;
       const message = this.state.body;
@@ -57,7 +69,7 @@ class NewNotes extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="notes_container">
         <form className="form">
           <label>Title:</label>
           <input type="text" value={this.state.title} onInput={this.handleChangeTitle} required />

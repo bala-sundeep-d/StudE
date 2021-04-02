@@ -82,7 +82,7 @@ const Notes = () => {
   return (
     <div>
     {state === 'view' ? (
-      <div className="container">
+      <div className="notes_container">
       <h1>Notes</h1>
       <h3 className="create_newNotes" onClick={()=>toggleView('edit')} >Create new notes</h3>
       
@@ -97,7 +97,7 @@ const Notes = () => {
     </div>    
     )
     :
-    (<NewNotes title={notesArray[`${noteId}`]&& notesArray[`${noteId}`].title} body={notesArray[`${noteId}`]&& notesArray[`${noteId}`].message} />)
+    (<NewNotes noteId={notesArray[`${noteId}`]&& notesArray[`${noteId}`]._id} title={notesArray[`${noteId}`]&& notesArray[`${noteId}`].title} body={notesArray[`${noteId}`]&& notesArray[`${noteId}`].message} />)
     }
     </div>
   );
