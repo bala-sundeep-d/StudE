@@ -1,6 +1,8 @@
 import React from 'react';
 import './Modal.css';
 
+
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class Modal extends React.Component {
   }
 
   hideModal(e) {
-    location.reload();
+    window.location.reload();
     this.setState({ open: !this.state.open })
   }
 
@@ -27,4 +29,5 @@ class Modal extends React.Component {
     );
   }
 }
+
 export default Modal;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Comments.css';
+import _ from 'lodash';
 import NewComment from "./NewComment.js";
 
 function Comments(props) {

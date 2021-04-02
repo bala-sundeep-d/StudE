@@ -12,13 +12,15 @@ class Qna extends React.Component {
     }
     componentDidMount(){
         const userId= localStorage.getItem('userId');
-        console.log(this.props.location.state, 'asdsadsa');
-        axios.get('/qna/getPostById?chapterId=' + this.props.location.state.cid).then(response => {
-            const allQnA = response.data;
-            this.setState({allQnA: allQnA});
-            console.log(response.data);
-            this.setState({ isLoading: false });
-        });
+        if(this.props && this.props.location && this.props.location.state && this.props.location.state.cid){
+            axios.get('/qna/getPostById?chapterId=' + this.props.location.state.cid).then(response => {
+                const allQnA = response.data;
+                this.setState({allQnA: allQnA});
+                console.log(response.data);
+                this.setState({ isLoading: false });
+            });
+        }
+        
     }
     render() {
      

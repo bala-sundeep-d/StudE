@@ -9,11 +9,14 @@ const Chapters = (props) => {
     const [chapters, setChapters] = useState([]);
 
     useEffect(() => {
-        const urlToGetAllChapters = "/chapters?subjectId=" + location.state.cid;
-        axios.get(urlToGetAllChapters).then(response => {
-            const chaptersList = response.data;
-            setChapters(chaptersList);
-        });
+        if(location && location.state && location.state.cid){
+            const urlToGetAllChapters = "/chapters?subjectId=" + location.state.cid;
+            axios.get(urlToGetAllChapters).then(response => {
+                const chaptersList = response.data;
+                setChapters(chaptersList);
+            });
+        }
+        
     }, []);
 
     return (
