@@ -10,7 +10,7 @@ const {
     updateTeacherComment
 } = require('../controllers/teacherCommentsController');
 
-router.post('/', createTeacherComment);
+router.post('/addComment', createTeacherComment);
 
 router.get('/getByTeacherId', fetchRecordsByTeacherId);
 

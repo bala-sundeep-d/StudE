@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const _ = require('lodash');
+const BlueBirdPromise = require('bluebird');
 
 const signin = (req, res, next) => {
 	const userId = req.body && req.body.userId;
@@ -79,9 +80,34 @@ const importUsers = (req, res) => {
 		res.send('import successful');
 	});
 }
+
+const getStudentByTeacherId = (req, res) => {
+
+	const teacherId = req.query && req.query.teacherId;
+	User.find({ "_id": teacherId }, (err, d) => {
+		if (err) return res.send(err);
+		const subjectId = d[0].subjectIds[0];
+		console.log(subjectId + "----------");
+
+		if (subjectId) {
+			User.find({ "role": "student", "subjectIds": subjectId }, (error, data) => {
+				const dataToSend = [];
+				for (const student of data) {
+
+					student['subjectIds'] = subjectId;
+					console.log(student);
+					dataToSend.push(student);
+				}
+				res.send(dataToSend);
+			});
+		}
+
+	});
+}
 module.exports = {
 	signin,
 	userList,
 	signout,
-	importUsers
+	importUsers,
+	getStudentByTeacherId
 };
