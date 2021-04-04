@@ -47,20 +47,11 @@ class NewForum extends React.Component {
   }
 
   addPost = e => {
-   // e.preventDefault();
-   // e.stopPropagation();
     const subjectId = "11";
     const title = this.state.title;
     const message = this.state.body;
-    console.log(title, subjectId, message)
     axios.post('/discussions/', { subjectId, title, message })
         .then(res => {
-            console.log(res.data);
-            // if (res && res.data === "POST_SUCCESS") {
-            //     this.props.history.push('/');
-            // } else {
-            //   res.data === "POST_FAILED";
-            // }
         });
 }
 

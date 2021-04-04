@@ -25,9 +25,7 @@ function Comments(props) {
     axios.get(getAllComments).then(response => {
         let comment = response.data;
         const temp = comments.concat(comment);
-        if (!comments || comment.length !== comments.length) addComments(_.filter(temp), (item) => item !== null);
-        console.log(comments, comment);
-    });
+        if (!comments || comment.length !== comments.length) addComments(_.filter(temp), (item) => item !== null);    });
 
 }, [comments]);
 

@@ -24,10 +24,8 @@ class NewComment extends React.Component {
             const discussionId = this.props.discussionId;
             const userId = localStorage.getItem('userId');
             const message = this.state.body;
-            console.log(discussionId, userId, message)
     axios.post('/comments/', { discussionId, userId, message })
         .then(res => {
-            console.log(res.data);
         });
             this.setState({ open: !this.state.open })
         }

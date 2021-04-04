@@ -20,7 +20,6 @@ function Discussions() {
         let discussions = response.data;
         const temp = posts.concat(discussions);
         if (!posts || discussions.length !== posts.length) addPosts(_.filter(temp), (item) => item !== null);
-        console.log(posts, discussions);
     });
 
 }, [posts]);
@@ -36,13 +35,11 @@ function Discussions() {
     const ShowPostOptions = () => (
       <div className="options_content">
               <a href="/">Edit</a>
-              <a onClick={deleteOption}>Delete</a>
+              <a href="/">Delete</a>
       </div>
     )
 
-    const deleteOption = () => ( 
-      console.log("Clicked delete")
-    )
+    
   return (
     <div className="discuss_container">
       <h1>Discussion Forums</h1>
