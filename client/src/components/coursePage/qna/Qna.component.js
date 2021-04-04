@@ -16,7 +16,6 @@ class Qna extends React.Component {
             axios.get('/qna/getPostById?chapterId=' + this.props.location.state.cid).then(response => {
                 const allQnA = response.data;
                 this.setState({allQnA: allQnA});
-                console.log(response.data);
                 this.setState({ isLoading: false });
             });
         }
