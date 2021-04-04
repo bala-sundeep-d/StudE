@@ -18,15 +18,15 @@ const signin = (req, res, next) => {
 
 	User.findOne({ userId }, (err, data) => {
 		if (err) {
-			return next(err);
+			return res.send(err);
 		}
 
 		if (!data) {
-			return next("no records found");
+			return res.send("no records found");
 		}
 
 		if (!bcrypt.compareSync(password, data.password)) {
-			return next("invalid password");
+			return res.send("invalid password");
 		}
 
 		const payload = {
@@ -34,7 +34,6 @@ const signin = (req, res, next) => {
 		}
 		const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' });
 		res.cookie('auth_token', token);
-		console.log(token);
 		return res.send({
 			message: 'LOGIN_SUCCESS',
 			user: data

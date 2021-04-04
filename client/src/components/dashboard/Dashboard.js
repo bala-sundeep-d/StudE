@@ -18,7 +18,7 @@ function Dashboard() {
 
     return (
         <div className="App">
-            <NotificationToast title="Notifcation" content="Welcome to StudE" type="error" />
+            <NotificationToast title="Notifcation" content="Welcome to StudE" type="success" />
             <Container fluid="true">
                 <Row>
                     <Col>

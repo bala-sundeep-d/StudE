@@ -20,7 +20,7 @@ const Logout = () => {
 
     return (
         <Button className="logoutButton" onClick={() => logout()}>
-            <BsPower />
+            <i class="bi bi-power" style={{fontSize: "2rem", padding: "0px", margin: "0px"}}></i>
         </Button>
 
     );
