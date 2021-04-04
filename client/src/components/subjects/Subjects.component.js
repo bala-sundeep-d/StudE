@@ -2,7 +2,7 @@
  * @author Nikunj Goenka
  * @email nikunjgoenka@dal.ca
  * @create date 2021-03-31 20:36:21
- * @modify date 2021-04-01 17:59:55
+ * @modify date 2021-04-03 21:07:56
  * @desc Page to show subjects a user have
  */
 import React, { useState, useEffect } from 'react';
@@ -32,7 +32,6 @@ const Subjects = (props) => {
 
 
     if (isLoading) {
-        console.log(allSubjectList);
         return (
             <Container className="TeacherCommentsContainer">
                 <Spinner animation="border" role="status" variant="light">

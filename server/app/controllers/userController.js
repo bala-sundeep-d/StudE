@@ -86,21 +86,17 @@ const getStudentByTeacherId = (req, res) => {
 	User.find({ "_id": teacherId }, (err, d) => {
 		if (err) return res.send(err);
 		const subjectId = d[0].subjectIds[0];
-		console.log(subjectId + "----------");
 
 		if (subjectId) {
 			User.find({ "role": "student", "subjectIds": subjectId }, (error, data) => {
 				const dataToSend = [];
 				for (const student of data) {
-
 					student['subjectIds'] = subjectId;
-					console.log(student);
 					dataToSend.push(student);
 				}
 				res.send(dataToSend);
 			});
 		}
-
 	});
 }
 module.exports = {

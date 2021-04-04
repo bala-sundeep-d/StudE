@@ -25,10 +25,8 @@ const fetchRecordsByStudentId = (req, res) => {
             const teacherId = record.teacherId;
             if (teacherId) {
                 User.findOne({ "_id": teacherId }, (err, teacherRecord) => {
-
                     if (err) return reject(err);
                     data[index].teacher = teacherRecord;
-                    console.log(data[index]);
                     return resolve();
                 });
             } else {

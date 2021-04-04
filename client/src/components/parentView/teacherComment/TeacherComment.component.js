@@ -2,7 +2,7 @@
  * @author Nikunj Goenka
  * @email nikunjgoenka@dal.ca
  * @create date 2021-03-21 06:30:08
- * @modify date 2021-04-02 17:11:28
+ * @modify date 2021-04-03 21:04:54
  * @desc Techers Comments Component
  */
 import React, { useState, useEffect } from 'react';
@@ -79,19 +79,15 @@ const TeacherComments = () => {
         for (const student of allstudentId) {
             if (student.name === e.target.value) {
                 setStudentId(student.id);
-                console.log("StudentID set to :" + student.id);
             }
         }
-        console.log(studentId);
     }
 
     const onCommentTypeChange = (e) => {
-        console.log("Comment type is set to :" + e.target.value);
         setCommentType(e.target.value);
     }
     // This will show spinner until the data have been loaded.
     if (isLoading) {
-        console.log(allComments);
         return (
             <Container className="TeacherCommentsContainer">
                 <Spinner animation="border" role="status" variant="light">
@@ -103,13 +99,11 @@ const TeacherComments = () => {
 
     const handleSubmit = async (e) => { // Once the form has been submitted, this function will post to the backend
         e.preventDefault();
-        console.log("Inside Handle Submit");
         const commentToPost = {
             studentId: studentId,
             comment: teacherComment,
             type: commentType
         }
-        console.log("Comment to be pushed is: " + commentToPost);
         axios.post("/teacherComments/addComment", commentToPost).then(response => {
             alert("Comment has been Added");
 
