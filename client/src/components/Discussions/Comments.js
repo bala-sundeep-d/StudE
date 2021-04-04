@@ -38,7 +38,7 @@ comments.map((comment, index) =>  {
       <i className="bi bi-person-circle" />
       <i className="comment_user_name">User</i>
       <div className="comment_options">
-        <i onClick={handleCommentOptions} className="bi bi-three-dots-vertical" />
+        <i onClick={handleCommentOptions} className="bi bi-threee-dots-vertical" />
         {commentOptions ? <ShowCommentOptions /> : null}
       </div>
      <h5 className="comment_text">

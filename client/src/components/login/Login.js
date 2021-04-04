@@ -32,7 +32,6 @@ class Login extends React.Component {
 
         axios.post('/login', { userId, password })
             .then(res => {
-                console.log(res.data);
                 if (res && res.data.message === "LOGIN_SUCCESS") {
 
                     localStorage.setItem('userId', res.data.user._id);
@@ -41,6 +40,7 @@ class Login extends React.Component {
                     this.props.history.push('/');
 
                 } else {
+                    alert(res.data);
                     this.props.history.push('/login');
                 }
             });

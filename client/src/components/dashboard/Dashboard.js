@@ -10,6 +10,7 @@ import Logout from '../logout/Logout';
 import Subjects from "../subjects/Subjects.component"
 import CoursePage from '../coursePage/CoursePage.component';
 import ParentView from '../parentView/Parentview.component';
+import Dictionary from '../dictionary/Dictionary';
 import NotificationToast from '../notificationToast/NotificationToast.component';
 
 
@@ -17,7 +18,7 @@ function Dashboard() {
 
     return (
         <div className="App">
-            <NotificationToast title="Notifcation" content="Welcome to StudE" type="error" />
+            <NotificationToast title="Notifcation" content="Welcome to StudE" type="success" />
             <Container fluid="true">
                 <Row>
                     <Col>
@@ -41,6 +42,7 @@ function Dashboard() {
                         </div>
                     </Col>
                 </Row>
+                <Dictionary/>
             </Container>
         </div>
     );

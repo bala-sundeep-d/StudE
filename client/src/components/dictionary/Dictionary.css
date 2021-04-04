@@ -1,3 +1,33 @@
-.hello {position:"fixed"; z-index:1000;
-    border-radius: "50px"; width: "50px"; height: "50px";
-    bottom: "10%"; right: "1%"}
+.modal-wrapper {
+    background: white;
+    border: 1px solid #d0cccc;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    margin: 100px auto 0;
+    transition: all .8s;
+    width: 60%;
+    border-radius: 2px;
+    }
+    
+    .modal-header {
+    background: #e2e2e2;
+    height: 60px;
+    padding: 2px;
+    }
+    
+    .modal-body {
+    padding: 2px;
+    height:200px;
+    }
+    
+    .modal-footer {
+    background: #e2e2e2;
+    height: 40px;
+    padding: 2px;
+    }
+
+    .btn:hover {
+        transform: none;
+        transition: "none";
+        background:  #6ec4db;
+        border:  #6ec4db;
+    }

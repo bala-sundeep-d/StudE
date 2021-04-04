@@ -6,7 +6,7 @@ import axios from 'axios';
 class NewNotes extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: this.props.title, body: this.props.body, onSave:(mode)=> this.props.onSave(mode), open: false };
+    this.state = { title: this.props.title, body: this.props.body, onSave:(mode)=> this.props.onSave(mode), open: false,status: null };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeBody = this.handleChangeBody.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,6 @@ class NewNotes extends Component {
 
   handleChangeTitle(event) {
     this.setState({ title: event.target.value });
-
     if ((this.state.title !== null) && (this.state.body !== null)) {
       document.getElementById("submitError").style.visibility = "hidden";
       document.getElementById("submitOK").style.visibility = "visible";
@@ -41,10 +40,8 @@ class NewNotes extends Component {
     }
   }
   handleSubmit(event) {
-    if (this.state.title.length === 0 || this.state.body.length === 0) {
-      event.preventDefault();
-    }
-    else if(this.props.title.length !== 0 || this.props.body.length !== 0){
+     if(this.props.title || this.props.body){
+       this.setState({status: "Updated Successfully"});
       const subjectId = "11";
       const title = this.state.title;
       const message = this.state.body;
@@ -54,18 +51,24 @@ class NewNotes extends Component {
         .then(res => {
             console.log(res.data);
         });
+        this.setState({ open: !this.state.open })
     }
-    else{
+    else if(this.state.title && this.state.body){
+      this.setState({status: "Created Successfully"});
       const subjectId = "11";
       const title = this.state.title;
       const message = this.state.body;
-      console.log(title, subjectId, message)
     axios.post('/notes/', { subjectId, title, message })
         .then(res => {
             console.log(res.data);
         });
+        this.setState({ open: !this.state.open })
     }
   }
+
+  showModal(e) {
+    this.setState({ open: !this.state.open })
+}
 
   render() {
     return (
@@ -80,12 +83,12 @@ class NewNotes extends Component {
             <input type="button" variant="contained" value="Save Note" />
           </div>
           <div id="submitOK" className="submitOK" onClick={this.handleSubmit}>
-            <input type="submit" variant="contained" value="Save Note" />
+            <input type="button" variant="contained" value="Save Note" />
           </div>
 
         </form>
         {this.state.open ? (
-          <Modal body="Success" />
+          <Modal body={this.state.status} />
         ) : null}
       </div>
 
