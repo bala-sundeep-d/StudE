@@ -46,10 +46,8 @@ class NewNotes extends Component {
       const title = this.state.title;
       const message = this.state.body;
 
-      console.log(title, subjectId, message)
       axios.patch('/notes/', { title, message, noteId:this.props.noteId })
         .then(res => {
-            console.log(res.data);
         });
         this.setState({ open: !this.state.open })
     }
@@ -60,7 +58,6 @@ class NewNotes extends Component {
       const message = this.state.body;
     axios.post('/notes/', { subjectId, title, message })
         .then(res => {
-            console.log(res.data);
         });
         this.setState({ open: !this.state.open })
     }
