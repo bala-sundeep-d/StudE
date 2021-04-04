@@ -13,7 +13,6 @@ import Login from './login/Login';
 const returnCookie = () => Cookies.get('auth_token');
 
 const validateAuth = (Component) => () => {
-	console.log(returnCookie(), "1");
 	return returnCookie() ? (
 		<Component />
 	) : (
@@ -22,7 +21,6 @@ const validateAuth = (Component) => () => {
 };
 
 const isLoggedIn = () => () => {
-	console.log(returnCookie());
 	return returnCookie() ? (
 		<Redirect to="/" />
 	) : (

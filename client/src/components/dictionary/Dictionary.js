@@ -26,7 +26,6 @@ const Dictionary = () => {
         .then(res => {
           const wordMeaning = res.data;
           updateMeaningValue(wordMeaning);
-          console.log(wordMeaning, 'mmm');
         })
         .catch(e => console.log(e));
     }
