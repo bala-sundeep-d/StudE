@@ -6,7 +6,6 @@ const fetchQnA = (req, res) => {
     if (!chapterId) return res.send("enter a valid chapterId");
     QnA.find({ chapterId }, (err, data) => {
         if (err) return res.send(err);
-        console.log(data);
         return res.send(data);
     });
 }
