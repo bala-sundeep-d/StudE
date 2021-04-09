@@ -68,6 +68,19 @@ JWT [2] and cookies are used for user authentication.
 
 ----------------------------------------------------------------------
 
+# bulk import API
+
+POST /users/
+{
+    firstName: first_name_value,
+    lastName: first_last_value,
+    userId: first_user_id_value,
+    role: first_role_value, // student or teacher
+    instituteId: first_institute_id_value,
+}
+
+----------------------------------------------------------------------
+
 # Sub tasks:
 
 - Managing deployments on heroku
