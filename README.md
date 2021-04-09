@@ -16,13 +16,13 @@
 # bulk import API
 
 POST https://stude-group4.herokuapp.com/users/
-{
+[{
     firstName: first_name_value,
     lastName: first_last_value,
     userId: first_user_id_value,
     role: first_role_value, // student or teacher
     instituteId: first_institute_id_value,
-}
+}]
 
 ----------------------------------------------------------------------
 
