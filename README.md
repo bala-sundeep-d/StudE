@@ -7,9 +7,9 @@
 
 ## Authors
 * [Nikunj Goenka](Nikunj.Goenka@dal.ca)
-* [prashant Sarvi] (pr486824@dal.ca)
-* [Bala Sundeep Krishna Dasari] (bl200240@dal.ca)
-* [Harry Ben Alex Pavuluri] (hr751368@dal.ca)
+* [prashant Sarvi](pr486824@dal.ca)
+* [Bala Sundeep Krishna Dasari](bl200240@dal.ca)
+* [Harry Ben Alex Pavuluri](hr751368@dal.ca)
 
 ---------------------------------------------------------------------
 
